@@ -1,0 +1,103 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "title": "Name",
+      "type": "string"
+    },
+    "url": {
+      "format": "uri",
+      "maxLength": 2083,
+      "minLength": 1,
+      "title": "Url",
+      "type": "string"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "category": {
+      "title": "Category",
+      "type": "string"
+    },
+    "tags": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Tags",
+      "type": "array"
+    },
+    "language": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Language",
+      "type": "array"
+    },
+    "maintainers": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Maintainers",
+      "type": "array"
+    },
+    "license": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "License"
+    },
+    "monetization": {
+      "default": "none",
+      "enum": [
+        "none",
+        "donations",
+        "subscription",
+        "freemium",
+        "paid",
+        "ads",
+        "sponsorship",
+        "other"
+      ],
+      "title": "Monetization",
+      "type": "string"
+    },
+    "open_source": {
+      "title": "Open Source",
+      "type": "boolean"
+    },
+    "repository": {
+      "anyOf": [
+        {
+          "format": "uri",
+          "maxLength": 2083,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Repository"
+    }
+  },
+  "required": [
+    "name",
+    "url",
+    "description",
+    "category",
+    "open_source"
+  ],
+  "title": "Entry",
+  "type": "object"
+}
