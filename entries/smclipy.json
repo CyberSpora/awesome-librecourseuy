@@ -1,0 +1,13 @@
+{
+  "name": "SMCLI.py",
+  "url": "https://github.com/joaquinlarroca/smclipy",
+  "description": "Downloads, tags, and organizes music from YouTube and SoundCloud with manually set metadata including multiple artists, album, and cover art.",
+  "category": "Developer Tools",
+  "tags": ["music", "musicbrainz", "yt-dlp", "cli"],
+  "language": ["Python"],
+  "maintainers": ["@joaquinlarroca"],
+  "license": "MIT",
+  "monetization": "none",
+  "open_source": true,
+  "repository": "https://github.com/joaquinlarroca/smclipy"
+}
