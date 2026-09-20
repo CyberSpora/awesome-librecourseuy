@@ -100,6 +100,7 @@ does not pick it up automatically:
 - a URL is not a valid `http`/`https` URL;
 - the project URL is not reachable (HTTP error, dead host, timeout);
 - the category is not listed in `categories.json`;
+- a tag is not listed in `tags.json`;
 - the name or URL duplicates another entry;
 - `open_source` is `true` but `repository` is missing;
 - `open_source` is `true` but the repository is private, missing a license,
@@ -110,11 +111,12 @@ The network checks run against GitHub with the Actions `GITHUB_TOKEN`, so
 public repositories are verified reliably. Locally, set `GITHUB_TOKEN` in your
 environment for the same behaviour.
 
-## Adding a category
+## Adding a category or tag
 
 Categories are defined in [`categories.json`](categories.json), in display
-order. To add one, edit that file in the same pull request and explain why the
-existing categories do not fit.
+order, and tags in [`tags.json`](tags.json), alphabetically. Both are closed
+sets: an unknown category or tag fails CI. To add one, edit the relevant file in
+the same pull request and explain why the existing values do not fit.
 
 ## Questions?
 
