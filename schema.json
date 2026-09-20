@@ -144,6 +144,11 @@
       ],
       "default": null,
       "title": "Repository"
+    },
+    "open_to_contributions": {
+      "default": true,
+      "title": "Open To Contributions",
+      "type": "boolean"
     }
   },
   "required": [
