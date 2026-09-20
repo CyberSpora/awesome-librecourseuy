@@ -1,0 +1,11 @@
+{
+  "categories": [
+    { "name": "Web", "description": "Sites and web applications." },
+    { "name": "APIs", "description": "Backend services and data APIs." },
+    { "name": "Mobile", "description": "Mobile applications." },
+    { "name": "Browser Extensions", "description": "Extensions for web browsers." },
+    { "name": "Developer Tools", "description": "Tooling, libraries and utilities for developers." },
+    { "name": "Education", "description": "Learning resources and course material." },
+    { "name": "Other", "description": "Anything that does not fit elsewhere." }
+  ]
+}
