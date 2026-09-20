@@ -1,0 +1,13 @@
+{
+  "name": "TrustSight",
+  "url": "https://trustsight.emiliano-go.com",
+  "description": "AUR package update vetting tool. Run it before yay -Syu.",
+  "category": "Developer Tools",
+  "tags": ["aur", "arch-linux", "security", "supply-chain"],
+  "language": ["Python"],
+  "maintainers": ["@emiliano-go"],
+  "license": "MIT",
+  "monetization": "none",
+  "open_source": true,
+  "repository": "https://github.com/emiliano-go/trustsight"
+}
