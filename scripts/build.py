@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 
-from models import ROOT, Entry, load_categories, load_entries
+from models import CATEGORIES, ROOT, TAGS, Entry, load_categories, load_entries
 
 TEMPLATE = ROOT / "README.template.md"
 README = ROOT / "README.md"
@@ -66,6 +66,13 @@ def render_feed(entries: list[Entry], categories: list[str]) -> str:
     ) + "\n"
 
 
+def render_schema() -> dict:
+    schema = Entry.model_json_schema()
+    schema["properties"]["category"]["enum"] = CATEGORIES
+    schema["properties"]["tags"]["items"]["enum"] = sorted(TAGS)
+    return schema
+
+
 def main() -> int:
     categories = load_categories()
     entries = load_entries()
@@ -76,7 +83,7 @@ def main() -> int:
     FEED.write_text(render_feed(entries, categories), encoding="utf-8")
 
     SCHEMA.write_text(
-        json.dumps(Entry.model_json_schema(), indent=2, ensure_ascii=False) + "\n",
+        json.dumps(render_schema(), indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8",
     )
 
