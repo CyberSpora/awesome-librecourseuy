@@ -1,11 +1,18 @@
 {
   "categories": [
-    { "name": "Web", "description": "Sites and web applications." },
-    { "name": "APIs", "description": "Backend services and data APIs." },
-    { "name": "Mobile", "description": "Mobile applications." },
-    { "name": "Browser Extensions", "description": "Extensions for web browsers." },
-    { "name": "Developer Tools", "description": "Tooling, libraries and utilities for developers." },
-    { "name": "Education", "description": "Learning resources and course material." },
+    { "name": "Web", "description": "Sites, web applications and dashboards." },
+    { "name": "APIs", "description": "Backend services, data APIs and microservices." },
+    { "name": "Mobile", "description": "Android, iOS, Flutter and React Native applications." },
+    { "name": "Desktop", "description": "Native desktop applications and GUIs." },
+    { "name": "CLI Tools", "description": "Command-line utilities and terminal applications." },
+    { "name": "Browser Extensions", "description": "Extensions and userscripts for web browsers." },
+    { "name": "Libraries", "description": "Reusable packages and libraries." },
+    { "name": "Developer Tools", "description": "Build tools, linters and developer utilities." },
+    { "name": "Education", "description": "Learning resources, course material and study tools." },
+    { "name": "Data & Analytics", "description": "Scrapers, datasets, visualization and ETL." },
+    { "name": "Games", "description": "Games and game mods." },
+    { "name": "Security", "description": "Security tooling, auditing and privacy." },
+    { "name": "Automation", "description": "Bots, schedulers and workflow automation." },
     { "name": "Other", "description": "Anything that does not fit elsewhere." }
   ]
 }
