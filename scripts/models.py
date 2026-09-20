@@ -1,0 +1,74 @@
+"""Pydantic models for awesome-librecourseuy entries. Single source of truth."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from typing import Literal
+
+from pydantic import BaseModel, ConfigDict, HttpUrl, field_validator, model_validator
+
+ROOT = Path(__file__).resolve().parent.parent
+ENTRIES_DIR = ROOT / "entries"
+CATEGORIES_FILE = ROOT / "categories.json"
+
+
+class Entry(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    name: str
+    url: HttpUrl
+    description: str
+    category: str
+    tags: list[str] = []
+    language: list[str] = []
+    maintainers: list[str] = []
+    license: str | None = None
+    monetization: Literal[
+        "none",
+        "donations",
+        "subscription",
+        "freemium",
+        "paid",
+        "ads",
+        "sponsorship",
+        "other",
+    ] = "none"
+    open_source: bool
+    repository: HttpUrl | None = None
+
+    @field_validator("name", "description", "category")
+    @classmethod
+    def _non_empty(cls, v: str) -> str:
+        if not v.strip():
+            raise ValueError("must not be empty")
+        return v.strip()
+
+    @field_validator("maintainers")
+    @classmethod
+    def _at_handles(cls, v: list[str]) -> list[str]:
+        for handle in v:
+            if not handle.startswith("@"):
+                raise ValueError(f"maintainer {handle!r} must start with '@'")
+        return v
+
+    @model_validator(mode="after")
+    def _open_source_needs_repo(self) -> Entry:
+        if self.open_source and self.repository is None:
+            raise ValueError("open_source entries must set 'repository'")
+        return self
+
+
+def load_categories() -> list[str]:
+    data = json.loads(CATEGORIES_FILE.read_text(encoding="utf-8"))
+    return [c["name"] for c in data["categories"]]
+
+
+def load_entries() -> list[Entry]:
+    entries = []
+    for path in sorted(ENTRIES_DIR.glob("*.json")):
+        try:
+            entries.append(Entry.model_validate_json(path.read_text(encoding="utf-8")))
+        except Exception as exc:  # noqa: BLE001 - surface file name in the error
+            raise ValueError(f"{path.name}: {exc}") from exc
+    return entries
