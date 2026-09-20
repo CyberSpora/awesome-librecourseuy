@@ -12,9 +12,9 @@ validated by CI. Want to add yours? Read
 <!-- PROJECTS:START -->
 ### Developer Tools
 
-- [Enodia](https://github.com/carlosplanchon/enodia): Wardriving on foot, without GPS or internet. ([source](https://github.com/carlosplanchon/enodia)) `Python` `MIT` @carlosplanchon
-- [SMCLI.py](https://github.com/joaquinlarroca/smclipy): Downloads, tags, and organizes music from YouTube and SoundCloud with manually set metadata including multiple artists, album, and cover art. ([source](https://github.com/joaquinlarroca/smclipy)) `Python` `MIT` @joaquinlarroca
-- [TrustSight](https://trustsight.emiliano-go.com/): AUR package update vetting tool. Run it before yay -Syu. ([source](https://github.com/emiliano-go/trustsight)) `Python` `MIT` @emiliano-go
+- [Enodia](https://github.com/carlosplanchon/enodia): Wardriving on foot, without GPS or internet. ([@carlosplanchon](https://github.com/carlosplanchon))
+- [SMCLI.py](https://github.com/joaquinlarroca/smclipy): Downloads, tags, and organizes music from YouTube and SoundCloud with manually set metadata including multiple artists, album, and cover art. ([@joaquinlarroca](https://github.com/joaquinlarroca))
+- [TrustSight](https://trustsight.emiliano-go.com/): AUR package update vetting tool. Run it before yay -Syu. ([@emiliano-go](https://github.com/emiliano-go))
 <!-- PROJECTS:END -->
 
 ## License
