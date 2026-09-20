@@ -61,7 +61,8 @@ All commits must be **GPG-signed**. See the
   "license": "MIT",
   "monetization": "none",
   "open_source": true,
-  "repository": "https://github.com/LibreCourseUY/my-project"
+  "repository": "https://github.com/LibreCourseUY/my-project",
+  "open_to_contributions": true
 }
 ```
 
@@ -78,6 +79,7 @@ All commits must be **GPG-signed**. See the
 | `monetization` | no | One of `none`, `donations`, `subscription`, `freemium`, `paid`, `ads`, `sponsorship`, `other`. Defaults to `none`. |
 | `open_source` | yes | `true` or `false`. |
 | `repository` | if open source | Source repository URL. Required when `open_source` is `true`. |
+| `open_to_contributions` | no | `true` or `false`. Whether the project accepts outside contributions. Defaults to `true`. |
 
 Editors get autocomplete and inline errors from the generated
 [`schema.json`](schema.json): add this to the top of your entry if your editor
