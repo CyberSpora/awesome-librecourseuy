@@ -28,7 +28,8 @@ def _self_check() -> None:
     line = render_projects([SAMPLE], ["Web", "APIs"])
     assert line.startswith("### Web\n"), line
     assert "- [Sample](https://example.com/): A sample project." in line, line
-    assert "[source](https://github.com/LibreCourseUY/sample)" in line
+    assert "[@someone](https://github.com/someone)" in line, line
+    assert "source" not in line, "no source/extra metadata in the line"
     assert "APIs" not in line, "empty categories must be omitted"
 
     readme = render_readme([SAMPLE], ["Web"])

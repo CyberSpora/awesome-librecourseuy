@@ -16,18 +16,14 @@ START, END = "<!-- PROJECTS:START -->", "<!-- PROJECTS:END -->"
 
 
 def entry_line(entry: Entry) -> str:
-    bits = [f"- [{entry.name}]({entry.url}): {entry.description}"]
-    if entry.repository:
-        bits.append(f"([source]({entry.repository}))")
-    if entry.language:
-        bits.append(f"`{'` `'.join(entry.language)}`")
-    if entry.license:
-        bits.append(f"`{entry.license}`")
-    if entry.monetization and entry.monetization != "none":
-        bits.append(f"_{entry.monetization}_")
+    line = f"- [{entry.name}]({entry.url}): {entry.description}"
     if entry.maintainers:
-        bits.append(" · ".join(entry.maintainers))
-    return " ".join(bits)
+        people = " · ".join(
+            f"[{handle}](https://github.com/{handle.lstrip('@')})"
+            for handle in entry.maintainers
+        )
+        line += f" ({people})"
+    return line
 
 
 def render_projects(entries: list[Entry], categories: list[str]) -> str:
