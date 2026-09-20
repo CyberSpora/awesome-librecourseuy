@@ -2,7 +2,7 @@ name: Render
 
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 permissions:
   contents: write
