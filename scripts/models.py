@@ -11,6 +11,20 @@ from pydantic import BaseModel, ConfigDict, HttpUrl, field_validator, model_vali
 ROOT = Path(__file__).resolve().parent.parent
 ENTRIES_DIR = ROOT / "entries"
 CATEGORIES_FILE = ROOT / "categories.json"
+TAGS_FILE = ROOT / "tags.json"
+
+
+def load_categories() -> list[str]:
+    data = json.loads(CATEGORIES_FILE.read_text(encoding="utf-8"))
+    return [c["name"] for c in data["categories"]]
+
+
+def load_tags() -> set[str]:
+    return set(json.loads(TAGS_FILE.read_text(encoding="utf-8"))["tags"])
+
+
+CATEGORIES = load_categories()
+TAGS = load_tags()
 
 
 class Entry(BaseModel):
@@ -44,6 +58,23 @@ class Entry(BaseModel):
             raise ValueError("must not be empty")
         return v.strip()
 
+    @field_validator("category")
+    @classmethod
+    def _known_category(cls, v: str) -> str:
+        if v not in CATEGORIES:
+            raise ValueError(f"unknown category {v!r}; allowed: {', '.join(CATEGORIES)}")
+        return v
+
+    @field_validator("tags")
+    @classmethod
+    def _known_tags(cls, v: list[str]) -> list[str]:
+        unknown = sorted({tag for tag in v if tag not in TAGS})
+        if unknown:
+            raise ValueError(
+                f"unknown tags {', '.join(unknown)}; add them to tags.json"
+            )
+        return v
+
     @field_validator("maintainers")
     @classmethod
     def _at_handles(cls, v: list[str]) -> list[str]:
@@ -57,11 +88,6 @@ class Entry(BaseModel):
         if self.open_source and self.repository is None:
             raise ValueError("open_source entries must set 'repository'")
         return self
-
-
-def load_categories() -> list[str]:
-    data = json.loads(CATEGORIES_FILE.read_text(encoding="utf-8"))
-    return [c["name"] for c in data["categories"]]
 
 
 def load_entries() -> list[Entry]:
