@@ -37,7 +37,8 @@
       "license": "MIT",
       "monetization": "none",
       "open_source": true,
-      "repository": "https://github.com/carlosplanchon/enodia"
+      "repository": "https://github.com/carlosplanchon/enodia",
+      "open_to_contributions": true
     },
     {
       "name": "SMCLI.py",
@@ -59,7 +60,8 @@
       "license": "MIT",
       "monetization": "none",
       "open_source": true,
-      "repository": "https://github.com/joaquinlarroca/smclipy"
+      "repository": "https://github.com/joaquinlarroca/smclipy",
+      "open_to_contributions": true
     },
     {
       "name": "TrustSight",
@@ -81,7 +83,8 @@
       "license": "MIT",
       "monetization": "none",
       "open_source": true,
-      "repository": "https://github.com/emiliano-go/trustsight"
+      "repository": "https://github.com/emiliano-go/trustsight",
+      "open_to_contributions": true
     }
   ]
 }
