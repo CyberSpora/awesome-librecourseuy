@@ -1,0 +1,21 @@
+name: Validate entries
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Check generator
+        run: |
+          uv run python scripts/test_build.py
+          uv run ruff check scripts/
+      - name: Validate entries (schema, URLs, open-source)
+        run: uv run python scripts/validate.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
