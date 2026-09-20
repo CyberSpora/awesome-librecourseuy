@@ -1,0 +1,80 @@
+{
+  "categories": [
+    "Web",
+    "APIs",
+    "Mobile",
+    "Browser Extensions",
+    "Developer Tools",
+    "Education",
+    "Other"
+  ],
+  "entries": [
+    {
+      "name": "Enodia",
+      "url": "https://github.com/carlosplanchon/enodia",
+      "description": "Wardriving on foot, without GPS or internet.",
+      "category": "Developer Tools",
+      "tags": [
+        "wardriving",
+        "wifi",
+        "offline",
+        "openstreetmap",
+        "privacy"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@carlosplanchon"
+      ],
+      "license": "MIT",
+      "monetization": "none",
+      "open_source": true,
+      "repository": "https://github.com/carlosplanchon/enodia"
+    },
+    {
+      "name": "SMCLI.py",
+      "url": "https://github.com/joaquinlarroca/smclipy",
+      "description": "Downloads, tags, and organizes music from YouTube and SoundCloud with manually set metadata including multiple artists, album, and cover art.",
+      "category": "Developer Tools",
+      "tags": [
+        "music",
+        "musicbrainz",
+        "yt-dlp",
+        "cli"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@joaquinlarroca"
+      ],
+      "license": "MIT",
+      "monetization": "none",
+      "open_source": true,
+      "repository": "https://github.com/joaquinlarroca/smclipy"
+    },
+    {
+      "name": "TrustSight",
+      "url": "https://trustsight.emiliano-go.com/",
+      "description": "AUR package update vetting tool. Run it before yay -Syu.",
+      "category": "Developer Tools",
+      "tags": [
+        "aur",
+        "arch-linux",
+        "security",
+        "supply-chain"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "monetization": "none",
+      "open_source": true,
+      "repository": "https://github.com/emiliano-go/trustsight"
+    }
+  ]
+}
