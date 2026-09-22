@@ -3,10 +3,18 @@
 Thank you for your interest in contributing! Adding a project to this list is
 just one file and one pull request; you never edit the README.
 
-The README is **generated** from the JSON files in [`entries/`](entries/),
-using [`README.template.md`](README.template.md) as the surrounding
-boilerplate. CI validates every entry and, once merged, regenerates the README
-and the machine-readable feed at [`public/entries.json`](public/entries.json).
+Everything you see at the top level is **generated** from the JSON files in
+[`entries/`](entries/): [`README.md`](README.md),
+[`public/entries.json`](public/entries.json) (the machine-readable feed) and
+[`schema.json`](schema.json). This repository is the single source of truth;
+the generator is [`scripts/build.py`](scripts/build.py), and
+[`README.template.md`](README.template.md) supplies the surrounding boilerplate.
+
+**Do not edit generated files by hand.** CI regenerates them on merge to
+`master` and overwrites any manual changes, so a pull request that touches
+`README.md`, `public/entries.json` or `schema.json` is always wrong. Add or
+change files in `entries/` instead (plus `categories.json` or `tags.json` only
+when introducing a new category or tag).
 
 ## Before you start
 
@@ -39,10 +47,18 @@ All commits must be **GPG-signed**. See the
    uv run python scripts/validate.py --offline
    ```
 
-5. Optionally preview the generated README:
+5. Optionally preview the generated files (this writes `README.md`,
+   `public/entries.json` and `schema.json`, so it is a local preview only):
 
    ```bash
    uv run python scripts/build.py
+   ```
+
+   Do **not** commit its output; CI regenerates those files on merge. To check
+   whether the committed files are current without writing anything:
+
+   ```bash
+   uv run python scripts/build.py --check
    ```
 
 6. Commit, push and open a Pull Request.
@@ -112,6 +128,11 @@ does not pick it up automatically:
 The network checks run against GitHub with the Actions `GITHUB_TOKEN`, so
 public repositories are verified reliably. Locally, set `GITHUB_TOKEN` in your
 environment for the same behaviour.
+
+CI also runs `scripts/build.py --check` and the generator self-check
+(`scripts/test_build.py`), so a pull request fails if the committed
+`README.md`, `public/entries.json` or `schema.json` do not match what the
+entries produce. You never need to regenerate them yourself.
 
 ## Adding a category or tag
 

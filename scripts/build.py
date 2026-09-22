@@ -1,8 +1,15 @@
-"""Regenerate README.md, public/entries.json and schema.json from entries/."""
+"""Regenerate README.md, public/entries.json and schema.json from entries/.
+
+Pass --check to verify the committed files are current without writing. Pass
+--verbose with --check to show a unified diff of each stale file.
+"""
 
 from __future__ import annotations
 
+import argparse
+import difflib
 import json
+import sys
 
 from models import CATEGORIES, ROOT, TAGS, Entry, load_categories, load_entries
 
@@ -73,19 +80,66 @@ def render_schema() -> dict:
     return schema
 
 
-def main() -> int:
+def render_all() -> dict:
+    """Render every generated file. Single source of truth for build and --check."""
     categories = load_categories()
     entries = load_entries()
+    return {
+        README: render_readme(entries, categories),
+        FEED: render_feed(entries, categories),
+        SCHEMA: json.dumps(render_schema(), indent=2, ensure_ascii=False) + "\n",
+    }
 
-    README.write_text(render_readme(entries, categories), encoding="utf-8")
 
-    FEED.parent.mkdir(exist_ok=True)
-    FEED.write_text(render_feed(entries, categories), encoding="utf-8")
+def check_all(*, verbose: bool) -> int:
+    stale: list[str] = []
+    for path, rendered in render_all().items():
+        current = path.read_text(encoding="utf-8") if path.exists() else ""
+        if current == rendered:
+            continue
+        stale.append(str(path.relative_to(ROOT)))
+        if verbose:
+            diff = difflib.unified_diff(
+                current.splitlines(),
+                rendered.splitlines(),
+                fromfile=f"{path.relative_to(ROOT)} (committed)",
+                tofile=f"{path.relative_to(ROOT)} (regenerated)",
+                lineterm="",
+            )
+            print("\n".join(diff))
 
-    SCHEMA.write_text(
-        json.dumps(render_schema(), indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
+    if stale:
+        print(
+            "stale generated files: run `uv run python scripts/build.py`: "
+            + ", ".join(stale),
+            file=sys.stderr,
+        )
+        return 1
+
+    print("generated files are current")
+    return 0
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="verify the generated files are current; write nothing",
     )
+    parser.add_argument(
+        "--verbose",
+        action="store_true",
+        help="with --check, show a unified diff of each stale file",
+    )
+    args = parser.parse_args()
+
+    if args.check:
+        return check_all(verbose=args.verbose)
+
+    for path, rendered in render_all().items():
+        path.parent.mkdir(exist_ok=True)
+        path.write_text(rendered, encoding="utf-8")
 
     print(f"wrote {README.name}, {FEED.relative_to(ROOT)}, {SCHEMA.name}")
     return 0

@@ -23,7 +23,7 @@ SAMPLE = Entry(
 
 
 def _self_check() -> None:
-    from build import render_projects, render_readme
+    from build import check_all, render_projects, render_readme
 
     line = render_projects([SAMPLE], ["Web", "APIs"])
     assert line.startswith("### Web\n"), line
@@ -37,6 +37,8 @@ def _self_check() -> None:
     assert readme.count("<!-- PROJECTS:END -->") == 1
     assert "1 projects and counting" in readme
     assert "PROJECTS:START -->\n### Web" in readme, "list must be injected at the marker"
+
+    assert check_all(verbose=False) == 0, "committed generated files are stale"
     print("build self-check ok")
 
 
