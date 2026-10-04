@@ -20,9 +20,9 @@ def check_entry(entry, categories: set[str], *, online: bool) -> list[str]:
     if not ok:
         errors.append(f"{entry.name}: url not reachable ({detail})")
     if entry.open_source and entry.repository:
-        ok, detail = is_open_source(str(entry.repository))
+        ok, detail = is_open_source(str(entry.repository), entry.license)
         if not ok:
-            errors.append(f"{entry.name}: repository is not open source ({detail})")
+            errors.append(f"{entry.name}: repository check failed ({detail})")
     return errors
 
 

@@ -11,7 +11,7 @@ import difflib
 import json
 import sys
 
-from models import CATEGORIES, ROOT, TAGS, Entry, load_categories, load_entries
+from models import CATEGORIES, LICENSES, ROOT, TAGS, Entry, load_categories, load_entries
 
 TEMPLATE = ROOT / "README.template.md"
 README = ROOT / "README.md"
@@ -78,6 +78,7 @@ def render_schema() -> dict:
     schema = Entry.model_json_schema()
     schema["properties"]["category"]["enum"] = CATEGORIES
     schema["properties"]["tags"]["items"]["enum"] = sorted(TAGS)
+    schema["properties"]["license"]["enum"] = sorted(LICENSES)
     return schema
 
 

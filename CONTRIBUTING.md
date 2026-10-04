@@ -13,8 +13,8 @@ the generator is [`scripts/build.py`](scripts/build.py), and
 **Do not edit generated files by hand.** CI regenerates them on merge to
 `master` and overwrites any manual changes, so a pull request that touches
 `README.md`, `public/entries.json` or `schema.json` is always wrong. Add or
-change files in `entries/` instead (plus `categories.json` or `tags.json` only
-when introducing a new category or tag).
+change files in `entries/` instead (plus `categories.json`, `tags.json` or
+`licenses.json` only when introducing a new category, tag or license).
 
 ## Before you start
 
@@ -87,7 +87,7 @@ All commits must be **GPG-signed**. See the
 | `tags` | no | Free-form keywords. |
 | `language` | no | Programming languages, as a list. |
 | `maintainers` | no | GitHub handles, each starting with `@`. |
-| `license` | no | SPDX identifier, e.g. `MIT`. |
+| `license` | yes | One of the SPDX identifiers in [`licenses.json`](licenses.json), exactly as GitHub detects it (e.g. `MIT`, or `GPL-3.0` rather than `GPL-3.0-or-later`). |
 | `monetization` | no | One of `none`, `donations`, `subscription`, `freemium`, `paid`, `ads`, `sponsorship`, `other`. Defaults to `none`. |
 | `open_source` | yes | `true` or `false`. |
 | `repository` | if open source | Source repository URL. Required when `open_source` is `true`. |
@@ -115,10 +115,12 @@ does not pick it up automatically:
 - the project URL is not reachable (HTTP error, dead host, timeout);
 - the category is not listed in `categories.json`;
 - a tag is not listed in `tags.json`;
+- the license is not listed in `licenses.json`;
 - the name or URL duplicates another entry;
 - `open_source` is `true` but `repository` is missing;
-- `open_source` is `true` but the repository is private, missing a license,
-  or does not exist (GitHub repositories are verified through the API);
+- `open_source` is `true` but the repository is private or does not exist, or
+  GitHub cannot identify its license or detects a different one than declared
+  (GitHub repositories are verified through the API);
 - a maintainer handle does not start with `@`.
 
 The network checks run against GitHub with the Actions `GITHUB_TOKEN`, so
@@ -129,12 +131,19 @@ CI also renders the generated files from your entries and runs the generator
 self-check (`scripts/test_build.py`), but never asks you to commit them: they
 are regenerated on merge to `master`, so you never need to do it yourself.
 
-## Adding a category or tag
+## Adding a category, tag or license
 
 Categories are defined in [`categories.json`](categories.json), in display
-order, and tags in [`tags.json`](tags.json), alphabetically. Both are closed
-sets: an unknown category or tag fails CI. To add one, edit the relevant file in
+order, tags in [`tags.json`](tags.json) and licenses in
+[`licenses.json`](licenses.json), alphabetically. All three are closed sets: an
+unknown category, tag or license fails CI. To add one, edit the relevant file in
 the same pull request and explain why the existing values do not fit.
+
+`licenses.json` lists every license GitHub can identify that the
+[SPDX License List](https://spdx.org/licenses/) marks as OSI-approved or
+FSF-libre. Only add a license that meets both conditions: projects under
+licenses GitHub cannot identify, including source-available ones, are not
+listed.
 
 ## Questions?
 

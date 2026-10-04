@@ -13,11 +13,12 @@ UA = "awesome-librecourseuy-validator/1.0 (+https://github.com/LibreCourseUY/awe
 GITHUB_RE = re.compile(r"^https?://github\.com/([^/]+)/([^/#?]+)")
 
 
-def is_open_source(repository: str, timeout: int = 15) -> tuple[bool, str]:
-    """Check a repository URL looks open source.
+def is_open_source(repository: str, declared: str, timeout: int = 15) -> tuple[bool, str]:
+    """Check a repository URL is open source under the declared license.
 
-    GitHub repos are checked via the API (public + a license file). Non-GitHub
-    hosts are accepted if the page is reachable.
+    GitHub repos are checked via the API: public, with a license GitHub can
+    identify that matches the declared one. Non-GitHub hosts are accepted if the
+    page is reachable.
     """
     match = GITHUB_RE.match(repository)
     if not match:
@@ -43,9 +44,16 @@ def is_open_source(repository: str, timeout: int = 15) -> tuple[bool, str]:
 
     if data.get("private"):
         return False, "repository is private"
-    if not data.get("license"):
+    detected = (data.get("license") or {}).get("spdx_id")
+    if not detected:
         return False, "no license file detected"
-    return True, f"public, {data['license'].get('spdx_id', 'licensed')}"
+    # Licensee only names licenses it recognizes, all of them open source;
+    # source-available ones (Business Source License, SSPL) come back as NOASSERTION.
+    if detected == "NOASSERTION":
+        return False, "GitHub cannot identify the license"
+    if detected != declared:
+        return False, f"entry declares {declared} but GitHub detects {detected}"
+    return True, f"public, {detected}"
 
 
 def url_ok(url: str, timeout: int = 15) -> tuple[bool, str]:

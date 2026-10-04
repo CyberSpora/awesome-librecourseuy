@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parent.parent
 ENTRIES_DIR = ROOT / "entries"
 CATEGORIES_FILE = ROOT / "categories.json"
 TAGS_FILE = ROOT / "tags.json"
+LICENSES_FILE = ROOT / "licenses.json"
 
 
 def load_categories() -> list[str]:
@@ -23,8 +24,13 @@ def load_tags() -> set[str]:
     return set(json.loads(TAGS_FILE.read_text(encoding="utf-8"))["tags"])
 
 
+def load_licenses() -> set[str]:
+    return set(json.loads(LICENSES_FILE.read_text(encoding="utf-8"))["licenses"])
+
+
 CATEGORIES = load_categories()
 TAGS = load_tags()
+LICENSES = load_licenses()
 
 
 class Entry(BaseModel):
@@ -37,7 +43,7 @@ class Entry(BaseModel):
     tags: list[str] = []
     language: list[str] = []
     maintainers: list[str] = []
-    license: str | None = None
+    license: str
     monetization: Literal[
         "none",
         "donations",
@@ -74,6 +80,13 @@ class Entry(BaseModel):
             raise ValueError(
                 f"unknown tags {', '.join(unknown)}; add them to tags.json"
             )
+        return v
+
+    @field_validator("license")
+    @classmethod
+    def _known_license(cls, v: str) -> str:
+        if v not in LICENSES:
+            raise ValueError(f"unknown license {v!r}; use an identifier from licenses.json")
         return v
 
     @field_validator("maintainers")

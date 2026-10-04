@@ -23,7 +23,7 @@ SAMPLE = Entry(
 
 
 def _self_check() -> None:
-    from build import render_projects, render_readme
+    from build import render_projects, render_readme, render_schema
 
     line = render_projects([SAMPLE], ["Web", "APIs"])
     assert line.startswith("### Web\n"), line
@@ -40,6 +40,8 @@ def _self_check() -> None:
 
     braces = SAMPLE.model_copy(update={"description": "Renders {name}, {} and {{ var }}."})
     assert "Renders {name}, {} and {{ var }}." in render_readme([braces], ["Web"]), "verbatim"
+
+    assert "MIT" in render_schema()["properties"]["license"]["enum"], "license enum"
     print("build self-check ok")
 
 
