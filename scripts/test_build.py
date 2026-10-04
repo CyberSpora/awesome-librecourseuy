@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -23,7 +24,7 @@ SAMPLE = Entry(
 
 
 def _self_check() -> None:
-    from build import render_projects, render_readme, render_schema
+    from build import render_feed, render_projects, render_readme, render_schema
 
     line = render_projects([SAMPLE], ["Web", "APIs"])
     assert line.startswith("### Web\n"), line
@@ -42,6 +43,9 @@ def _self_check() -> None:
     assert "Renders {name}, {} and {{ var }}." in render_readme([braces], ["Web"]), "verbatim"
 
     assert "MIT" in render_schema()["properties"]["license"]["enum"], "license enum"
+
+    feed = json.loads(render_feed([SAMPLE], ["Web"]))
+    assert "open_to_contributions" not in feed["entries"][0], "never assumed"
     print("build self-check ok")
 
 

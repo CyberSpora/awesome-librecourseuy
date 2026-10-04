@@ -91,7 +91,7 @@ All commits must be **GPG-signed**. See the
 | `monetization` | no | One of `none`, `donations`, `subscription`, `freemium`, `paid`, `ads`, `sponsorship`, `other`. Defaults to `none`. |
 | `open_source` | yes | `true` or `false`. |
 | `repository` | if open source | Source repository URL. Required when `open_source` is `true`. |
-| `open_to_contributions` | no | `true` or `false`. Whether the project accepts outside contributions. Defaults to `true`. |
+| `open_to_contributions` | no | `true` or `false`. Whether the project accepts outside contributions. If omitted it is unknown, never assumed, and left out of the feed. |
 
 Editors get autocomplete and inline errors from the generated
 [`schema.json`](schema.json): add this to the top of your entry if your editor

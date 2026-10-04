@@ -56,7 +56,7 @@ class Entry(BaseModel):
     ] = "none"
     open_source: bool
     repository: HttpUrl | None = None
-    open_to_contributions: bool = True
+    open_to_contributions: bool | None = None
 
     @field_validator("name", "description", "category")
     @classmethod
