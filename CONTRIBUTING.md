@@ -54,12 +54,8 @@ All commits must be **GPG-signed**. See the
    uv run python scripts/build.py
    ```
 
-   Do **not** commit its output; CI regenerates those files on merge. To check
-   whether the committed files are current without writing anything:
-
-   ```bash
-   uv run python scripts/build.py --check
-   ```
+   Do **not** commit its output; CI regenerates those files on merge. Discard
+   the preview with `git checkout -- README.md public/entries.json schema.json`.
 
 6. Commit, push and open a Pull Request.
 
@@ -129,10 +125,9 @@ The network checks run against GitHub with the Actions `GITHUB_TOKEN`, so
 public repositories are verified reliably. Locally, set `GITHUB_TOKEN` in your
 environment for the same behaviour.
 
-CI also runs `scripts/build.py --check` and the generator self-check
-(`scripts/test_build.py`), so a pull request fails if the committed
-`README.md`, `public/entries.json` or `schema.json` do not match what the
-entries produce. You never need to regenerate them yourself.
+CI also renders the generated files from your entries and runs the generator
+self-check (`scripts/test_build.py`), but never asks you to commit them: they
+are regenerated on merge to `master`, so you never need to do it yourself.
 
 ## Adding a category or tag
 
