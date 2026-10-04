@@ -32,9 +32,9 @@
       ],
       "license": "GPL-3.0",
       "monetization": "none",
-      "open_source": true,
       "repository": "https://github.com/Kevin-Ramirez127/quick-bitwarden",
-      "open_to_contributions": true
+      "open_to_contributions": true,
+      "relationship": "community"
     },
     {
       "name": "Enodia",
@@ -56,9 +56,9 @@
       ],
       "license": "MIT",
       "monetization": "none",
-      "open_source": true,
       "repository": "https://github.com/carlosplanchon/enodia",
-      "open_to_contributions": true
+      "open_to_contributions": true,
+      "relationship": "community"
     },
     {
       "name": "SMCLI.py",
@@ -79,9 +79,8 @@
       ],
       "license": "MIT",
       "monetization": "none",
-      "open_source": true,
       "repository": "https://github.com/joaquinlarroca/smclipy",
-      "open_to_contributions": true
+      "relationship": "community"
     },
     {
       "name": "TrustSight",
@@ -102,9 +101,8 @@
       ],
       "license": "MIT",
       "monetization": "none",
-      "open_source": true,
       "repository": "https://github.com/emiliano-go/trustsight",
-      "open_to_contributions": true
+      "relationship": "community"
     }
   ]
 }
