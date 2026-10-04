@@ -80,7 +80,7 @@ All commits must be **GPG-signed**. See the
 | Field | Required | Notes |
 |-------|----------|-------|
 | `name` | yes | Display name. Must be unique. |
-| `url` | yes | Project or site URL (`http`/`https`). Must be unique. |
+| `url` | no | Project or site URL (`http`/`https`). Defaults to `repository`. Must be unique. |
 | `description` | yes | One sentence, no trailing period needed. |
 | `category` | yes | One of the categories in [`categories.json`](categories.json). |
 | `tags` | no | Free-form keywords. |

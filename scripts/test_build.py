@@ -45,6 +45,15 @@ def _self_check() -> None:
 
     feed = json.loads(render_feed([SAMPLE], ["Web"]))
     assert "open_to_contributions" not in feed["entries"][0], "never assumed"
+
+    bare = Entry(
+        name="Bare",
+        description="No url of its own.",
+        category="Web",
+        license="MIT",
+        repository="https://github.com/someone/bare",
+    )
+    assert str(bare.url) == "https://github.com/someone/bare", "url defaults to repository"
     print("build self-check ok")
 
 

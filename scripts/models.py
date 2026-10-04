@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from typing import Literal
 
-from pydantic import BaseModel, ConfigDict, HttpUrl, field_validator
+from pydantic import BaseModel, ConfigDict, HttpUrl, field_validator, model_validator
 
 ROOT = Path(__file__).resolve().parent.parent
 ENTRIES_DIR = ROOT / "entries"
@@ -37,7 +37,7 @@ class Entry(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     name: str
-    url: HttpUrl
+    url: HttpUrl | None = None
     description: str
     category: str
     tags: list[str] = []
@@ -95,6 +95,12 @@ class Entry(BaseModel):
             if not handle.startswith("@"):
                 raise ValueError(f"maintainer {handle!r} must start with '@'")
         return v
+
+    @model_validator(mode="after")
+    def _url_defaults_to_repository(self) -> Entry:
+        if self.url is None:
+            self.url = self.repository
+        return self
 
 
 def load_entries() -> list[Entry]:
