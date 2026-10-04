@@ -9,5 +9,6 @@
   "license": "MIT",
   "monetization": "none",
   "open_source": true,
-  "repository": "https://github.com/carlosplanchon/enodia"
+  "repository": "https://github.com/carlosplanchon/enodia",
+  "open_to_contributions": true
 }
