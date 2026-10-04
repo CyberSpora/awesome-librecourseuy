@@ -10,14 +10,15 @@ from models import load_categories, load_entries
 from urls import is_open_source, url_ok
 
 
-def check_entry(entry, categories: set[str], *, check_urls: bool) -> list[str]:
+def check_entry(entry, categories: set[str], *, online: bool) -> list[str]:
     errors: list[str] = []
     if entry.category not in categories:
         errors.append(f"{entry.name}: unknown category {entry.category!r}")
-    if check_urls:
-        ok, detail = url_ok(str(entry.url))
-        if not ok:
-            errors.append(f"{entry.name}: url not reachable ({detail})")
+    if not online:
+        return errors
+    ok, detail = url_ok(str(entry.url))
+    if not ok:
+        errors.append(f"{entry.name}: url not reachable ({detail})")
     if entry.open_source and entry.repository:
         ok, detail = is_open_source(str(entry.repository))
         if not ok:
@@ -54,12 +55,10 @@ def main() -> int:
             errors.append(f"{entry.name}: duplicate url {url}")
         seen_url[url] = entry.name
 
-    check_urls = not args.offline
+    online = not args.offline
     if entries:
         with ThreadPoolExecutor(max_workers=8) as pool:
-            results = pool.map(
-                lambda e: check_entry(e, categories, check_urls=check_urls), entries
-            )
+            results = pool.map(lambda e: check_entry(e, categories, online=online), entries)
             for result in results:
                 errors.extend(result)
 
