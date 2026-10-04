@@ -17,7 +17,6 @@ SAMPLE = Entry(
     category="Web",
     language=["Python"],
     license="MIT",
-    open_source=True,
     repository="https://github.com/LibreCourseUY/sample",
     maintainers=["@someone"],
 )

@@ -8,6 +8,5 @@
   "maintainers": ["@joaquinlarroca"],
   "license": "MIT",
   "monetization": "none",
-  "open_source": true,
   "repository": "https://github.com/joaquinlarroca/smclipy"
 }

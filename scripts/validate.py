@@ -19,10 +19,9 @@ def check_entry(entry, categories: set[str], *, online: bool) -> list[str]:
     ok, detail = url_ok(str(entry.url))
     if not ok:
         errors.append(f"{entry.name}: url not reachable ({detail})")
-    if entry.open_source and entry.repository:
-        ok, detail = is_open_source(str(entry.repository), entry.license)
-        if not ok:
-            errors.append(f"{entry.name}: repository check failed ({detail})")
+    ok, detail = is_open_source(str(entry.repository), entry.license)
+    if not ok:
+        errors.append(f"{entry.name}: repository check failed ({detail})")
     return errors
 
 
@@ -45,6 +44,7 @@ def main() -> int:
     errors: list[str] = []
     seen_name: dict[str, str] = {}
     seen_url: dict[str, str] = {}
+    seen_repo: dict[str, str] = {}
 
     for entry in entries:
         if entry.name.lower() in seen_name:
@@ -54,6 +54,10 @@ def main() -> int:
         if url in seen_url:
             errors.append(f"{entry.name}: duplicate url {url}")
         seen_url[url] = entry.name
+        repo = str(entry.repository)
+        if repo in seen_repo:
+            errors.append(f"{entry.name}: duplicate repository {repo}")
+        seen_repo[repo] = entry.name
 
     online = not args.offline
     if entries:

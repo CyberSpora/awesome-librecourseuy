@@ -72,7 +72,6 @@ All commits must be **GPG-signed**. See the
   "maintainers": ["@your-handle"],
   "license": "MIT",
   "monetization": "none",
-  "open_source": true,
   "repository": "https://github.com/LibreCourseUY/my-project",
   "open_to_contributions": true
 }
@@ -89,8 +88,7 @@ All commits must be **GPG-signed**. See the
 | `maintainers` | no | GitHub handles, each starting with `@`. |
 | `license` | yes | One of the SPDX identifiers in [`licenses.json`](licenses.json), exactly as GitHub detects it (e.g. `MIT`, or `GPL-3.0` rather than `GPL-3.0-or-later`). |
 | `monetization` | no | One of `none`, `donations`, `subscription`, `freemium`, `paid`, `ads`, `sponsorship`, `other`. Defaults to `none`. |
-| `open_source` | yes | `true` or `false`. |
-| `repository` | if open source | Source repository URL. Required when `open_source` is `true`. |
+| `repository` | yes | Source repository URL (`http`/`https`). Must be unique. Only open source projects are listed. |
 | `open_to_contributions` | no | `true` or `false`. Whether the project accepts outside contributions. If omitted it is unknown, never assumed, and left out of the feed. |
 
 Editors get autocomplete and inline errors from the generated
@@ -116,11 +114,10 @@ does not pick it up automatically:
 - the category is not listed in `categories.json`;
 - a tag is not listed in `tags.json`;
 - the license is not listed in `licenses.json`;
-- the name or URL duplicates another entry;
-- `open_source` is `true` but `repository` is missing;
-- `open_source` is `true` but the repository is private or does not exist, or
-  GitHub cannot identify its license or detects a different one than declared
-  (GitHub repositories are verified through the API);
+- the name, URL or repository duplicates another entry;
+- the repository is private or does not exist, or GitHub cannot identify its
+  license or detects a different one than declared (GitHub repositories are
+  verified through the API);
 - a maintainer handle does not start with `@`.
 
 The network checks run against GitHub with the Actions `GITHUB_TOKEN`, so
