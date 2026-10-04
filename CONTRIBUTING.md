@@ -23,7 +23,6 @@ Read and accept our community documents:
 | Document | Description |
 |----------|-------------|
 | [CONTRIBUTING.md](https://github.com/LibrecourseUY/.github/blob/master/CONTRIBUTING.md) | How to contribute to our projects |
-| [CLA](https://github.com/LibrecourseUY/.github/blob/master/CLA.md) | Contributor License Agreement (required) |
 | [CODE_OF_CONDUCT.md](https://github.com/LibrecourseUY/.github/blob/master/CODE_OF_CONDUCT.md) | Community behavior expectations |
 
 All commits must be **GPG-signed**. See the
