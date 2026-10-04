@@ -50,13 +50,14 @@ def render_projects(entries: list[Entry], categories: list[str]) -> str:
 
 
 def render_readme(entries: list[Entry], categories: list[str]) -> str:
-    template = TEMPLATE.read_text(encoding="utf-8")
+    # Fill {count} before injecting entries: their text may contain braces.
+    template = TEMPLATE.read_text(encoding="utf-8").format(count=len(entries))
     if START not in template or END not in template:
         raise SystemExit(f"README.template.md must contain {START} and {END}")
     head, rest = template.split(START, 1)
     _, tail = rest.split(END, 1)
     body = head + START + "\n" + render_projects(entries, categories) + "\n" + END + tail
-    return BANNER + body.format(count=len(entries))
+    return BANNER + body
 
 
 def render_feed(entries: list[Entry], categories: list[str]) -> str:

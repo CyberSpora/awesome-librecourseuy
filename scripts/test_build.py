@@ -38,6 +38,9 @@ def _self_check() -> None:
     assert "1 projects and counting" in readme
     assert "PROJECTS:START -->\n### Web" in readme, "list must be injected at the marker"
 
+    braces = SAMPLE.model_copy(update={"description": "Renders {name}, {} and {{ var }}."})
+    assert "Renders {name}, {} and {{ var }}." in render_readme([braces], ["Web"]), "verbatim"
+
     assert check_all(verbose=False) == 0, "committed generated files are stale"
     print("build self-check ok")
 
