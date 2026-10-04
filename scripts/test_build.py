@@ -45,6 +45,7 @@ def _self_check() -> None:
 
     feed = json.loads(render_feed([SAMPLE], ["Web"]))
     assert "open_to_contributions" not in feed["entries"][0], "never assumed"
+    assert feed["entries"][0]["relationship"] == "official", "repositories under the org"
 
     bare = Entry(
         name="Bare",
@@ -54,6 +55,8 @@ def _self_check() -> None:
         repository="https://github.com/someone/bare",
     )
     assert str(bare.url) == "https://github.com/someone/bare", "url defaults to repository"
+    community = json.loads(render_feed([bare], ["Web"]))["entries"][0]
+    assert community["relationship"] == "community", "repositories elsewhere"
     print("build self-check ok")
 
 

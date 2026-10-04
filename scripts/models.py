@@ -13,6 +13,7 @@ ENTRIES_DIR = ROOT / "entries"
 CATEGORIES_FILE = ROOT / "categories.json"
 TAGS_FILE = ROOT / "tags.json"
 LICENSES_FILE = ROOT / "licenses.json"
+ORG = "LibreCourseUY"
 
 
 def load_categories() -> list[str]:
@@ -101,6 +102,14 @@ class Entry(BaseModel):
         if self.url is None:
             self.url = self.repository
         return self
+
+    @property
+    def relationship(self) -> Literal["official", "community"]:
+        """Derived from the repository owner, never declared, so no entry can claim it."""
+        owner = (self.repository.path or "/").split("/")[1]
+        if self.repository.host == "github.com" and owner.lower() == ORG.lower():
+            return "official"
+        return "community"
 
 
 def load_entries() -> list[Entry]:

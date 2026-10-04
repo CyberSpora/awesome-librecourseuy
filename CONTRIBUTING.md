@@ -91,6 +91,11 @@ All commits must be **GPG-signed**. See the
 | `repository` | yes | Source repository URL (`http`/`https`). Must be unique. Only open source projects are listed. |
 | `open_to_contributions` | no | `true` or `false`. Whether the project accepts outside contributions. If omitted it is unknown, never assumed, and left out of the feed. |
 
+The feed also carries `relationship`, derived from `repository`: `official` for
+repositories owned by the LibreCourseUY organization on GitHub, `community` for
+everything else. Entries cannot set it, so listing a project never presents it
+as an official LibreCourseUY project.
+
 Editors get autocomplete and inline errors from the generated
 [`schema.json`](schema.json): add this to the top of your entry if your editor
 does not pick it up automatically:

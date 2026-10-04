@@ -60,12 +60,16 @@ def render_readme(entries: list[Entry], categories: list[str]) -> str:
     return BANNER + body
 
 
+def feed_entry(entry: Entry) -> dict:
+    return {**entry.model_dump(mode="json", exclude_none=True), "relationship": entry.relationship}
+
+
 def render_feed(entries: list[Entry], categories: list[str]) -> str:
     return json.dumps(
         {
             "categories": categories,
             "entries": sorted(
-                (e.model_dump(mode="json", exclude_none=True) for e in entries),
+                (feed_entry(e) for e in entries),
                 key=lambda e: (e["category"], e["name"].lower()),
             ),
         },
