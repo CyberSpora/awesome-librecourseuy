@@ -1,21 +1,42 @@
-"""Validate every entry/*.json. Exits non-zero on the first problem."""
+"""Validate every entries/*.json. Exits non-zero when anything is wrong.
+
+Schema and cross-file checks always cover every entry. The network checks (URL
+liveness and repository verification) cover every entry too, unless --only
+narrows them to the given files or --offline skips them.
+"""
 
 from __future__ import annotations
 
 import argparse
 import sys
 from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
 
-from models import load_categories, load_entries
+from models import Entry, load_categories, load_entry_files
 from urls import repository_ok, url_ok
 
 
-def check_entry(entry, categories: set[str], *, online: bool) -> list[str]:
+def select_network_entries(
+    files: dict[Path, Entry], only: list[str] | None
+) -> dict[Path, Entry]:
+    """Pick the entries that get network checks: every one, or only the given files.
+
+    Narrowing them to the files a pull request touches keeps a third-party site
+    that is down from blocking unrelated changes.
+    """
+    if only is None:
+        return dict(files)
+    selected: dict[Path, Entry] = {}
+    for raw in only:
+        path = Path(raw).resolve()
+        if path not in files:
+            raise ValueError(f"{raw}: not an entry file (deleted, or outside entries/)")
+        selected[path] = files[path]
+    return selected
+
+
+def check_network(entry: Entry) -> list[str]:
     errors: list[str] = []
-    if entry.category not in categories:
-        errors.append(f"{entry.name}: unknown category {entry.category!r}")
-    if not online:
-        return errors
     ok, detail = url_ok(str(entry.url))
     if not ok:
         errors.append(f"{entry.name}: url not reachable ({detail})")
@@ -26,21 +47,34 @@ def check_entry(entry, categories: set[str], *, online: bool) -> list[str]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
+    parser = argparse.ArgumentParser(description=__doc__)
+    network = parser.add_mutually_exclusive_group()
+    network.add_argument(
         "--offline",
         action="store_true",
-        help="skip network checks (URL liveness and open-source verification)",
+        help="skip the network checks (URL liveness and repository verification)",
+    )
+    network.add_argument(
+        "--only",
+        nargs="*",
+        metavar="ENTRY",
+        help="run the network checks only for these entry files; with no files, skip them",
     )
     args = parser.parse_args()
 
-    categories = set(load_categories())
+    categories = load_categories()
     try:
-        entries = load_entries()
+        files = load_entry_files()
     except ValueError as exc:
         print(f"invalid entry: {exc}", file=sys.stderr)
         return 1
+    try:
+        selected = {} if args.offline else select_network_entries(files, args.only)
+    except ValueError as exc:
+        print(f"error: {exc}", file=sys.stderr)
+        return 2
 
+    entries = list(files.values())
     errors: list[str] = []
     seen_name: dict[str, str] = {}
     seen_url: dict[str, str] = {}
@@ -59,11 +93,9 @@ def main() -> int:
             errors.append(f"{entry.name}: duplicate repository {repo}")
         seen_repo[repo] = entry.name
 
-    online = not args.offline
-    if entries:
+    if selected:
         with ThreadPoolExecutor(max_workers=8) as pool:
-            results = pool.map(lambda e: check_entry(e, categories, online=online), entries)
-            for result in results:
+            for result in pool.map(check_network, selected.values()):
                 errors.extend(result)
 
     if not entries:
@@ -73,7 +105,16 @@ def main() -> int:
         print("\n".join(errors), file=sys.stderr)
         return 1
 
-    print(f"ok: {len(entries)} entries across {len(categories)} categories")
+    if args.offline:
+        checked = "skipped"
+    elif args.only is None:
+        checked = f"all {len(selected)} entries"
+    else:
+        checked = ", ".join(path.name for path in selected) or "none selected"
+    print(
+        f"ok: {len(entries)} entries across {len(categories)} categories; "
+        f"network checks: {checked}"
+    )
     return 0
 
 

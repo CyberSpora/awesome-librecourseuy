@@ -35,10 +35,11 @@ All commits must be **GPG-signed**. See the
 2. Create a branch: `git checkout -b entry/your-project`.
 3. Add one JSON file to `entries/`, named after your project slug
    (e.g. `entries/my-project.json`).
-4. Validate locally (needs network access):
+4. Validate locally. `--only` limits the network checks to your entry, which
+   is also what CI does for a pull request:
 
    ```bash
-   uv run python scripts/validate.py
+   uv run python scripts/validate.py --only entries/my-project.json
    ```
 
    Without network access, run the schema and cross-file checks only:
@@ -110,28 +111,36 @@ does not pick it up automatically:
 
 ## What CI checks
 
-`scripts/validate.py` runs on every pull request and fails if:
+`scripts/validate.py` runs on every pull request and fails if, for any entry:
 
 - a field is missing, empty, or of the wrong type;
 - an unknown field is present (typos are caught, not ignored);
 - a URL is not a valid `http`/`https` URL;
-- the project URL is not reachable (HTTP error, dead host, timeout);
 - the category is not listed in `categories.json`;
 - a tag is not listed in `tags.json`;
 - the license is not listed in `licenses.json`;
 - the name, URL or repository duplicates another entry;
+- a maintainer handle does not start with `@`.
+
+For the entries the pull request adds or changes, it also fails if:
+
+- the project URL is not reachable (HTTP error, dead host, timeout);
 - the repository is private, archived or does not exist, or GitHub cannot
   identify its license or detects a different one than declared (GitHub
-  repositories are verified through the API);
-- a maintainer handle does not start with `@`.
+  repositories are verified through the API).
+
+These network checks are limited to the changed entries on purpose: a
+third-party site that is down for a day must not block an unrelated pull
+request.
 
 The network checks run against GitHub with the Actions `GITHUB_TOKEN`, so
 public repositories are verified reliably. Locally, set `GITHUB_TOKEN` in your
 environment for the same behaviour.
 
 CI also renders the generated files from your entries and runs the generator
-self-check (`scripts/test_build.py`), but never asks you to commit them: they
-are regenerated on merge to `master`, so you never need to do it yourself.
+and validator self-checks (`scripts/test_build.py`, `scripts/test_validate.py`),
+but never asks you to commit them: they are regenerated on merge to `master`,
+so you never need to do it yourself.
 
 ## Adding a category, tag or license
 

@@ -112,11 +112,16 @@ class Entry(BaseModel):
         return "community"
 
 
-def load_entries() -> list[Entry]:
-    entries = []
+def load_entry_files() -> dict[Path, Entry]:
+    """Every entry keyed by its file, in file-name order."""
+    entries: dict[Path, Entry] = {}
     for path in sorted(ENTRIES_DIR.glob("*.json")):
         try:
-            entries.append(Entry.model_validate_json(path.read_text(encoding="utf-8")))
+            entries[path] = Entry.model_validate_json(path.read_text(encoding="utf-8"))
         except Exception as exc:  # noqa: BLE001 - surface file name in the error
             raise ValueError(f"{path.name}: {exc}") from exc
     return entries
+
+
+def load_entries() -> list[Entry]:
+    return list(load_entry_files().values())
