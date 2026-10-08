@@ -131,7 +131,9 @@ For the entries the pull request adds or changes, it also fails if:
 
 These network checks are limited to the changed entries on purpose: a
 third-party site that is down for a day must not block an unrelated pull
-request.
+request. Every entry is re-checked by the
+[weekly workflow](.github/workflows/sweep.yml) instead, which opens an issue
+when something fails.
 
 The network checks run against GitHub with the Actions `GITHUB_TOKEN`, so
 public repositories are verified reliably. Locally, set `GITHUB_TOKEN` in your

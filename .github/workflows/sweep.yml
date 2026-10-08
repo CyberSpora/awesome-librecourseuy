@@ -1,0 +1,66 @@
+name: Check listed projects
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"  # every Monday at 09:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Validate every entry (schema, URLs, repositories)
+        id: validate
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: uv run python scripts/validate.py > result.txt 2>&1
+      - name: Show the result
+        run: cat result.txt
+      - name: Report the failures in an issue
+        if: steps.validate.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          LABEL: broken entry
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          POLICY_URL: ${{ github.server_url }}/${{ github.repository }}/blob/master/CONTRIBUTING.md#removal
+        run: |
+          {
+            echo "The weekly check of every listed project failed on $(date -u +%Y-%m-%d):"
+            echo
+            echo '```'
+            cat result.txt
+            echo '```'
+            echo
+            echo "See the [workflow run]($RUN_URL). Fix or remove the affected entries as described in [CONTRIBUTING.md]($POLICY_URL)."
+          } > body.md
+          gh label create "$LABEL" --force --color D93F0B \
+            --description "A listed project fails the weekly check"
+          existing=$(gh issue list --label "$LABEL" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$(cat body.md)"
+          else
+            gh issue create --title "Some listed projects fail the weekly check" \
+              --label "$LABEL" --body "$(cat body.md)"
+          fi
+      - name: Close the issue once everything passes
+        if: steps.validate.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          LABEL: broken entry
+        run: |
+          existing=$(gh issue list --label "$LABEL" --state open --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue close "$existing" --comment "Every listed project passes the weekly check again."
+          fi
+      - name: Fail the run when the check failed
+        if: steps.validate.outcome == 'failure'
+        run: exit 1
