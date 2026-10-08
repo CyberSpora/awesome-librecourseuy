@@ -88,7 +88,7 @@ Read and accept our community documents:
 | [CODE_OF_CONDUCT.md](https://github.com/LibrecourseUY/.github/blob/master/CODE_OF_CONDUCT.md) | Community behavior expectations |
 
 All commits must be **GPG-signed**. See the
-[GPG Key Setup guide](https://librecourseuy.github.io/git).
+[GPG Signature Guide](https://librecourse.uy/docs/gpg-signature/).
 
 ## Add a project
 
