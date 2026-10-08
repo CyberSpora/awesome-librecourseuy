@@ -16,6 +16,67 @@ the generator is [`scripts/build.py`](scripts/build.py), and
 change files in `entries/` instead (plus `categories.json`, `tags.json` or
 `licenses.json` only when introducing a new category, tag or license).
 
+## What listing means
+
+This repository is a catalog of the ecosystem, not a registry of LibreCourseUY
+projects. An entry here means the project meets the inclusion criteria below,
+and nothing more: it does **not** make the project an official LibreCourseUY
+project, and it does not mean LibreCourseUY maintains, endorses or speaks for
+it. The organization's
+[TRADEMARK.md](https://github.com/LibrecourseUY/.github/blob/master/TRADEMARK.md)
+applies: do not present a listing as an endorsement or as official status.
+
+Three different things can happen to a project, and none of them implies the
+next.
+
+| Act | What it means | How it shows |
+|-----|---------------|--------------|
+| **Listing** | The project meets the inclusion criteria and has an entry here. | A file in `entries/`; the feed carries `relationship: community`. |
+| **Collaboration** | The project's maintainers welcome outside contributors. LibreCourseUY members contribute like anyone else, and the project's maintainers keep deciding what gets merged. | `open_to_contributions: true`, declared by the maintainers in the entry. |
+| **Adoption** | LibreCourseUY takes responsibility for maintaining and governing the project. | The repository lives under the [LibreCourseUY organization](https://github.com/LibreCourseUY) and the feed derives `relationship: official`. |
+
+Adoption is a transfer of the repository into the organization, agreed with
+the project's maintainers and decided by the organization administrators, as
+[GOVERNANCE.md](https://github.com/LibrecourseUY/.github/blob/master/GOVERNANCE.md)
+describes. Nothing in this repository can grant it: entries cannot set
+`relationship`, it is derived from the repository owner.
+
+### Inclusion criteria
+
+A project is listed when all of the following hold:
+
+- It is built by Uruguayan developers: at least one maintainer is from Uruguay
+  or based there. CI cannot check this, so say so in the pull request when it
+  is not obvious; reviewers may ask.
+- Its source is public under a license from [`licenses.json`](licenses.json):
+  the licenses GitHub can identify that are OSI-approved or FSF-libre. CI
+  verifies this for GitHub repositories; for other hosts, reviewers check the
+  license file by hand.
+- Its repository is not archived and its URL works. CI verifies both.
+- It is a project in its own right: not a fork with no changes, a template, a
+  tutorial or exercise repository, or a placeholder.
+- It does not misrepresent its authorship or its official status.
+
+Reviewers may decline an entry that passes CI but falls outside the list's
+scope, as GOVERNANCE.md provides.
+
+### Removal
+
+An entry is removed, through a pull request like any other change, when the
+project no longer meets the criteria:
+
+- the repository is archived, made private or deleted, or no longer carries a
+  license GitHub can identify as open source;
+- the project URL fails the weekly check two weeks in a row;
+- the maintainers ask for the entry to be removed;
+- the entry turns out to misrepresent the project.
+
+The [weekly workflow](.github/workflows/sweep.yml) re-checks every entry
+against GitHub and the project URLs and opens an issue when something fails;
+maintainers fix or remove the affected entries from there. Removal is not a
+judgment on the project: anyone can propose the entry again once the criteria
+hold.
+
 ## Before you start
 
 Read and accept our community documents:
