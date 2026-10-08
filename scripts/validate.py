@@ -7,7 +7,7 @@ import sys
 from concurrent.futures import ThreadPoolExecutor
 
 from models import load_categories, load_entries
-from urls import is_open_source, url_ok
+from urls import repository_ok, url_ok
 
 
 def check_entry(entry, categories: set[str], *, online: bool) -> list[str]:
@@ -19,7 +19,7 @@ def check_entry(entry, categories: set[str], *, online: bool) -> list[str]:
     ok, detail = url_ok(str(entry.url))
     if not ok:
         errors.append(f"{entry.name}: url not reachable ({detail})")
-    ok, detail = is_open_source(str(entry.repository), entry.license)
+    ok, detail = repository_ok(str(entry.repository), entry.license)
     if not ok:
         errors.append(f"{entry.name}: repository check failed ({detail})")
     return errors

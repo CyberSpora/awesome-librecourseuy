@@ -120,9 +120,9 @@ does not pick it up automatically:
 - a tag is not listed in `tags.json`;
 - the license is not listed in `licenses.json`;
 - the name, URL or repository duplicates another entry;
-- the repository is private or does not exist, or GitHub cannot identify its
-  license or detects a different one than declared (GitHub repositories are
-  verified through the API);
+- the repository is private, archived or does not exist, or GitHub cannot
+  identify its license or detects a different one than declared (GitHub
+  repositories are verified through the API);
 - a maintainer handle does not start with `@`.
 
 The network checks run against GitHub with the Actions `GITHUB_TOKEN`, so

@@ -1,4 +1,4 @@
-"""Shared URL liveness and open-source checks."""
+"""Shared URL liveness and repository checks."""
 
 from __future__ import annotations
 
@@ -13,12 +13,12 @@ UA = "awesome-librecourseuy-validator/1.0 (+https://github.com/LibreCourseUY/awe
 GITHUB_RE = re.compile(r"^https?://github\.com/([^/]+)/([^/#?]+)")
 
 
-def is_open_source(repository: str, declared: str, timeout: int = 15) -> tuple[bool, str]:
-    """Check a repository URL is open source under the declared license.
+def repository_ok(repository: str, declared: str, timeout: int = 15) -> tuple[bool, str]:
+    """Check a repository is public, not archived, and open source under the declared license.
 
-    GitHub repos are checked via the API: public, with a license GitHub can
-    identify that matches the declared one. Non-GitHub hosts are accepted if the
-    page is reachable.
+    GitHub repos are checked via the API: public, not archived, with a license
+    GitHub can identify that matches the declared one. Non-GitHub hosts are
+    accepted if the page is reachable; reviewers check their license by hand.
     """
     match = GITHUB_RE.match(repository)
     if not match:
@@ -44,6 +44,8 @@ def is_open_source(repository: str, declared: str, timeout: int = 15) -> tuple[b
 
     if data.get("private"):
         return False, "repository is private"
+    if data.get("archived"):
+        return False, "repository is archived"
     detected = (data.get("license") or {}).get("spdx_id")
     if not detected:
         return False, "no license file detected"
