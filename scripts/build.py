@@ -14,7 +14,6 @@ import sys
 from models import (
     CATEGORIES,
     LICENSES,
-    ORG,
     ROOT,
     TAGS,
     Entry,
@@ -61,10 +60,15 @@ def render_projects(entries: list[Entry], categories: list[str]) -> str:
     return "\n".join(lines).rstrip() or "_No entries yet._"
 
 
+def org_sort_key(org: Org) -> tuple[bool, str]:
+    """Official orgs (LibreCourseUY) first, then alphabetical."""
+    return (org.relationship != "official", org.name.lower())
+
+
 def render_orgs(orgs: list[Org]) -> str:
     lines = [
         f"- [{org.name}]({org.url}): {org.description}"
-        for org in sorted(orgs, key=lambda o: (o.relationship != "official", o.name.lower()))
+        for org in sorted(orgs, key=org_sort_key)
     ]
     return "\n".join(lines) or "_No orgs yet._"
 
@@ -115,10 +119,7 @@ def render_feed(entries: list[Entry], categories: list[str], orgs: list[Org]) ->
     return json.dumps(
         {
             "categories": categories,
-            "orgs": [
-                org_entry(org)
-                for org in sorted(orgs, key=lambda o: (o.relationship != "official", o.name.lower()))
-            ],
+            "orgs": [org_entry(org) for org in sorted(orgs, key=org_sort_key)],
             "entries": sorted(
                 (feed_entry(e) for e in entries),
                 key=lambda e: (e["category"], e["commercial"], e["name"].lower()),
