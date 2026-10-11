@@ -14,7 +14,7 @@ explains what listing means and when an entry is removed.
 ## Orgs
 
 <!-- ORGS:START -->
-- [LibreCourseUY](https://github.com/LibreCourseUY): Non-profit FOSS community growing the next generation of open source contributors in Latin America.
+- [LibreCourseUY](https://librecourse.uy/): Non-profit FOSS community growing the next generation of open source contributors in Latin America.
 - [Benav Labs](https://benav.io/): Transforming ideas into world class solutions.
 - [DBWarden](https://dbwarden.org/): Home of DBWarden, a declarative database migration system for Python/SQLAlchemy.
 - [Keel Linux](https://keel-linux.github.io/): Declarative, layered, IPv6-first system-container appliances, compatible with TurnKey Linux appliances.
