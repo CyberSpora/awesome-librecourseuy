@@ -1,0 +1,7 @@
+{
+  "name": "Keel Linux",
+  "url": "https://keel-linux.github.io",
+  "description": "Declarative, layered, IPv6-first system-container appliances, compatible with TurnKey Linux appliances.",
+  "tags": ["linux", "docker"],
+  "repository": "https://github.com/Keel-Linux"
+}

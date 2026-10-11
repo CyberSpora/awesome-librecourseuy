@@ -169,6 +169,33 @@ does not pick it up automatically:
 > Only include it while editing locally, or rely on your editor's JSON Schema
 > mapping configured to `schema.json`.
 
+## Org format
+
+Uruguayan-based open source organizations live in [`orgs/`](orgs/) as their
+own JSON files. They are listed above the projects in the README and feed.
+
+```json
+{
+  "name": "My Org",
+  "url": "https://my-org.example.com",
+  "description": "One sentence about the org.",
+  "tags": ["python"],
+  "repository": "https://github.com/my-org"
+}
+```
+
+| Field | Required | Notes |
+|-------|----------|-------|
+| `name` | yes | Display name. Must be unique. |
+| `url` | no | Website URL (`http`/`https`). Defaults to `repository`. Must be unique. |
+| `description` | yes | One sentence. |
+| `tags` | no | Free-form keywords from [`tags.json`](tags.json). |
+| `repository` | yes | GitHub organization URL (e.g. `https://github.com/my-org`). Must be unique. |
+
+The `relationship` rule from entries applies here too: the LibreCourseUY
+organization is `official`, everything else is `community`, and orgs cannot
+set it themselves. CI checks that the organization exists and is public.
+
 ## What CI checks
 
 `scripts/validate.py` runs on every pull request and fails if, for any entry:
@@ -181,6 +208,10 @@ does not pick it up automatically:
 - the license is not listed in `licenses.json`;
 - the name, URL or repository duplicates another entry;
 - a maintainer handle does not start with `@`.
+
+Orgs are checked the same way, minus the entry-only fields: name, URL and
+repository must be unique, tags must be known, and CI verifies the GitHub
+organization exists and is public.
 
 For the entries the pull request adds or changes, it also fails if:
 

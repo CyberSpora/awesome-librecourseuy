@@ -8,7 +8,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from models import Entry  # noqa: E402
+from models import Entry, Org  # noqa: E402
 
 SAMPLE = Entry(
     name="Sample",
@@ -19,6 +19,12 @@ SAMPLE = Entry(
     license="MIT",
     repository="https://github.com/LibreCourseUY/sample",
     maintainers=["@someone"],
+)
+
+SAMPLE_ORG = Org(
+    name="Sample Org",
+    description="A sample org.",
+    repository="https://github.com/sample-org",
 )
 
 
@@ -32,21 +38,28 @@ def _self_check() -> None:
     assert "source" not in line, "no source/extra metadata in the line"
     assert "APIs" not in line, "empty categories must be omitted"
 
-    readme = render_readme([SAMPLE], ["Web"])
+    readme = render_readme([SAMPLE], ["Web"], [SAMPLE_ORG])
     assert readme.count("<!-- PROJECTS:START -->") == 1
     assert readme.count("<!-- PROJECTS:END -->") == 1
+    assert readme.count("<!-- ORGS:START -->") == 1
     assert "1 projects and counting" in readme
+    assert "- [Sample Org](https://github.com/sample-org): A sample org." in readme
+    assert readme.index("## Orgs") < readme.index("## Projects"), "orgs come first"
+    assert readme.index("Sample Org") < readme.index("### Web"), "orgs before projects"
     assert "PROJECTS:START -->\n### Web" in readme, "list must be injected at the marker"
 
     braces = SAMPLE.model_copy(update={"description": "Renders {name}, {} and {{ var }}."})
-    assert "Renders {name}, {} and {{ var }}." in render_readme([braces], ["Web"]), "verbatim"
+    assert "Renders {name}, {} and {{ var }}." in render_readme([braces], ["Web"], []), "verbatim"
 
     assert "MIT" in render_schema()["properties"]["license"]["enum"], "license enum"
 
-    feed = json.loads(render_feed([SAMPLE], ["Web"]))
+    feed = json.loads(render_feed([SAMPLE], ["Web"], [SAMPLE_ORG]))
     assert "open_to_contributions" not in feed["entries"][0], "never assumed"
     assert feed["entries"][0]["relationship"] == "official", "repositories under the org"
     assert feed["entries"][0]["open_source"] is True, "listing requires public OSS"
+    assert feed["orgs"][0]["name"] == "Sample Org"
+    assert feed["orgs"][0]["relationship"] == "community"
+    assert str(SAMPLE_ORG.url) == "https://github.com/sample-org", "org url defaults to repository"
 
     bare = Entry(
         name="Bare",
@@ -56,7 +69,7 @@ def _self_check() -> None:
         repository="https://github.com/someone/bare",
     )
     assert str(bare.url) == "https://github.com/someone/bare", "url defaults to repository"
-    community = json.loads(render_feed([bare], ["Web"]))["entries"][0]
+    community = json.loads(render_feed([bare], ["Web"], []))["entries"][0]
     assert community["relationship"] == "community", "repositories elsewhere"
     print("build self-check ok")
 

@@ -3,13 +3,21 @@
 
 A curated list of open source projects built by Uruguayan developers.
 
-35 projects and counting. Every entry is a JSON file in [`entries/`](entries/),
-validated by CI. Want to add yours? Read
+35 projects and counting. Every entry is a JSON file in [`entries/`](entries/)
+or [`orgs/`](orgs/), validated by CI. Want to add yours? Read
 [CONTRIBUTING.md](CONTRIBUTING.md); you never edit this README by hand.
 
 Being listed is not an endorsement, and it does not make a project a
 LibreCourseUY project. [CONTRIBUTING.md](CONTRIBUTING.md#what-listing-means)
 explains what listing means and when an entry is removed.
+
+## Orgs
+
+<!-- ORGS:START -->
+- [DBWarden](https://dbwarden.org/): Home of DBWarden, a declarative database migration system for Python/SQLAlchemy.
+- [Keel Linux](https://keel-linux.github.io/): Declarative, layered, IPv6-first system-container appliances, compatible with TurnKey Linux appliances.
+- [LibreCourseUY](https://github.com/LibreCourseUY): Community of Uruguayan developers building free software courses and projects.
+<!-- ORGS:END -->
 
 ## Projects
 

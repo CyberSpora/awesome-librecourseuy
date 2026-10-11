@@ -73,3 +73,26 @@ def url_ok(url: str, timeout: int = 15) -> tuple[bool, str]:
         except (urllib.error.URLError, TimeoutError, OSError) as exc:
             return False, str(getattr(exc, "reason", exc))
     return False, "unreachable"
+
+
+def org_ok(repository: str, timeout: int = 15) -> tuple[bool, str]:
+    """Check a GitHub organization exists and is public."""
+    match = re.match(r"^https?://github\.com/([^/]+)/?$", repository)
+    if not match:
+        return False, "not a GitHub organization URL"
+    api = f"https://api.github.com/orgs/{match.group(1)}"
+    headers = {"User-Agent": UA, "Accept": "application/vnd.github+json"}
+    if token := os.environ.get("GITHUB_TOKEN"):
+        headers["Authorization"] = f"Bearer {token}"
+    try:
+        with urllib.request.urlopen(
+            urllib.request.Request(api, headers=headers), timeout=timeout
+        ) as resp:
+            data = json.load(resp)
+    except urllib.error.HTTPError as exc:
+        if exc.code == 404:
+            return False, "organization not found or private"
+        return False, f"HTTP {exc.code}"
+    except (urllib.error.URLError, TimeoutError, OSError) as exc:
+        return False, str(getattr(exc, "reason", exc))
+    return True, f"public ({data.get('login')})"

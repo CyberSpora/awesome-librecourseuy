@@ -10,6 +10,7 @@ from pydantic import BaseModel, ConfigDict, HttpUrl, field_validator, model_vali
 
 ROOT = Path(__file__).resolve().parent.parent
 ENTRIES_DIR = ROOT / "entries"
+ORGS_DIR = ROOT / "orgs"
 CATEGORIES_FILE = ROOT / "categories.json"
 TAGS_FILE = ROOT / "tags.json"
 LICENSES_FILE = ROOT / "licenses.json"
@@ -116,3 +117,65 @@ def load_entry_files() -> dict[Path, Entry]:
 
 def load_entries() -> list[Entry]:
     return list(load_entry_files().values())
+
+
+class Org(BaseModel):
+    """A Uruguayan-based open source organization, listed above the projects."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    name: str
+    url: HttpUrl | None = None
+    description: str
+    tags: list[str] = []
+    repository: HttpUrl
+
+    @field_validator("name", "description")
+    @classmethod
+    def _non_empty(cls, v: str) -> str:
+        if not v.strip():
+            raise ValueError("must not be empty")
+        return v.strip()
+
+    @field_validator("tags")
+    @classmethod
+    def _known_tags(cls, v: list[str]) -> list[str]:
+        unknown = sorted({tag for tag in v if tag not in TAGS})
+        if unknown:
+            raise ValueError(f"unknown tags {', '.join(unknown)}; add them to tags.json")
+        return v
+
+    @field_validator("repository")
+    @classmethod
+    def _github_org(cls, v: HttpUrl) -> HttpUrl:
+        parts = (v.path or "/").strip("/").split("/")
+        if v.host != "github.com" or len(parts) != 1 or not parts[0]:
+            raise ValueError("repository must be a GitHub organization URL")
+        return v
+
+    @model_validator(mode="after")
+    def _url_defaults_to_repository(self) -> Org:
+        if self.url is None:
+            self.url = self.repository
+        return self
+
+    @property
+    def relationship(self) -> Literal["official", "community"]:
+        owner = (self.repository.path or "/").strip("/")
+        if self.repository.host == "github.com" and owner.lower() == ORG.lower():
+            return "official"
+        return "community"
+
+
+def load_org_files() -> dict[Path, Org]:
+    orgs: dict[Path, Org] = {}
+    for path in sorted(ORGS_DIR.glob("*.json")):
+        try:
+            orgs[path] = Org.model_validate_json(path.read_text(encoding="utf-8"))
+        except Exception as exc:  # noqa: BLE001 - surface file name in the error
+            raise ValueError(f"{path.name}: {exc}") from exc
+    return orgs
+
+
+def load_orgs() -> list[Org]:
+    return list(load_org_files().values())

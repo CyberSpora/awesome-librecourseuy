@@ -11,7 +11,18 @@ import difflib
 import json
 import sys
 
-from models import CATEGORIES, LICENSES, ROOT, TAGS, Entry, load_categories, load_entries
+from models import (
+    CATEGORIES,
+    LICENSES,
+    ORG,
+    ROOT,
+    TAGS,
+    Entry,
+    Org,
+    load_categories,
+    load_entries,
+    load_orgs,
+)
 
 TEMPLATE = ROOT / "README.template.md"
 README = ROOT / "README.md"
@@ -20,6 +31,7 @@ SCHEMA = ROOT / "schema.json"
 
 BANNER = "<!-- GENERATED FILE - DO NOT EDIT. Edit README.template.md or entries/*.json. -->\n"
 START, END = "<!-- PROJECTS:START -->", "<!-- PROJECTS:END -->"
+ORGS_START, ORGS_END = "<!-- ORGS:START -->", "<!-- ORGS:END -->"
 
 
 def entry_line(entry: Entry) -> str:
@@ -49,14 +61,43 @@ def render_projects(entries: list[Entry], categories: list[str]) -> str:
     return "\n".join(lines).rstrip() or "_No entries yet._"
 
 
-def render_readme(entries: list[Entry], categories: list[str]) -> str:
+def render_orgs(orgs: list[Org]) -> str:
+    lines = [
+        f"- [{org.name}]({org.url}): {org.description}"
+        for org in sorted(orgs, key=lambda o: o.name.lower())
+    ]
+    return "\n".join(lines) or "_No orgs yet._"
+
+
+def org_entry(org: Org) -> dict:
+    return {**org.model_dump(mode="json", exclude_none=True), "relationship": org.relationship}
+
+
+def render_readme(entries: list[Entry], categories: list[str], orgs: list[Org]) -> str:
     # Fill {count} before injecting entries: their text may contain braces.
     template = TEMPLATE.read_text(encoding="utf-8").format(count=len(entries))
-    if START not in template or END not in template:
-        raise SystemExit(f"README.template.md must contain {START} and {END}")
-    head, rest = template.split(START, 1)
+    for marker in (START, END, ORGS_START, ORGS_END):
+        if marker not in template:
+            raise SystemExit(f"README.template.md must contain {marker}")
+    head, rest = template.split(ORGS_START, 1)
+    _, rest = rest.split(ORGS_END, 1)
+    mid, rest = rest.split(START, 1)
     _, tail = rest.split(END, 1)
-    body = head + START + "\n" + render_projects(entries, categories) + "\n" + END + tail
+    body = (
+        head
+        + ORGS_START
+        + "\n"
+        + render_orgs(orgs)
+        + "\n"
+        + ORGS_END
+        + mid
+        + START
+        + "\n"
+        + render_projects(entries, categories)
+        + "\n"
+        + END
+        + tail
+    )
     return BANNER + body
 
 
@@ -70,10 +111,11 @@ def feed_entry(entry: Entry) -> dict:
     }
 
 
-def render_feed(entries: list[Entry], categories: list[str]) -> str:
+def render_feed(entries: list[Entry], categories: list[str], orgs: list[Org]) -> str:
     return json.dumps(
         {
             "categories": categories,
+            "orgs": [org_entry(org) for org in orgs],
             "entries": sorted(
                 (feed_entry(e) for e in entries),
                 key=lambda e: (e["category"], e["name"].lower()),
@@ -96,9 +138,10 @@ def render_all() -> dict:
     """Render every generated file. Single source of truth for build and --check."""
     categories = load_categories()
     entries = load_entries()
+    orgs = load_orgs()
     return {
-        README: render_readme(entries, categories),
-        FEED: render_feed(entries, categories),
+        README: render_readme(entries, categories, orgs),
+        FEED: render_feed(entries, categories, orgs),
         SCHEMA: json.dumps(render_schema(), indent=2, ensure_ascii=False) + "\n",
     }
 

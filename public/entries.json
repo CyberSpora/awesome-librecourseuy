@@ -15,6 +15,38 @@
     "Automation",
     "Other"
   ],
+  "orgs": [
+    {
+      "name": "DBWarden",
+      "url": "https://dbwarden.org/",
+      "description": "Home of DBWarden, a declarative database migration system for Python/SQLAlchemy.",
+      "tags": [
+        "sqlalchemy",
+        "python"
+      ],
+      "repository": "https://github.com/dbwarden-org",
+      "relationship": "community"
+    },
+    {
+      "name": "Keel Linux",
+      "url": "https://keel-linux.github.io/",
+      "description": "Declarative, layered, IPv6-first system-container appliances, compatible with TurnKey Linux appliances.",
+      "tags": [
+        "linux",
+        "docker"
+      ],
+      "repository": "https://github.com/Keel-Linux",
+      "relationship": "community"
+    },
+    {
+      "name": "LibreCourseUY",
+      "url": "https://github.com/LibreCourseUY",
+      "description": "Community of Uruguayan developers building free software courses and projects.",
+      "tags": [],
+      "repository": "https://github.com/LibreCourseUY",
+      "relationship": "official"
+    }
+  ],
   "entries": [
     {
       "name": "audit-log-microservice",
