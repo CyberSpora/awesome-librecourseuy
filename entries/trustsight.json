@@ -1,6 +1,6 @@
 {
   "name": "TrustSight",
-  "url": "https://trustsight.emiliano-go.com",
+  "url": "https://trustsight.org",
   "description": "AUR package update vetting tool. Run it before yay -Syu.",
   "category": "Developer Tools",
   "tags": ["aur", "arch-linux", "security", "supply-chain"],
