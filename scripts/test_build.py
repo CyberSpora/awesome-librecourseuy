@@ -46,6 +46,7 @@ def _self_check() -> None:
     feed = json.loads(render_feed([SAMPLE], ["Web"]))
     assert "open_to_contributions" not in feed["entries"][0], "never assumed"
     assert feed["entries"][0]["relationship"] == "official", "repositories under the org"
+    assert feed["entries"][0]["open_source"] is True, "listing requires public OSS"
 
     bare = Entry(
         name="Bare",

@@ -7,6 +7,5 @@
   "language": ["Python"],
   "maintainers": ["@emiliano-go"],
   "license": "MIT",
-  "monetization": "none",
   "repository": "https://github.com/emiliano-go/trustsight"
 }

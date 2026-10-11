@@ -45,16 +45,7 @@ class Entry(BaseModel):
     language: list[str] = []
     maintainers: list[str] = []
     license: str
-    monetization: Literal[
-        "none",
-        "donations",
-        "subscription",
-        "freemium",
-        "paid",
-        "ads",
-        "sponsorship",
-        "other",
-    ] = "none"
+    commercial: bool = False
     repository: HttpUrl
     open_to_contributions: bool | None = None
 

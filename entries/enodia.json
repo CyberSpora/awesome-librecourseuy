@@ -7,7 +7,6 @@
   "language": ["Python"],
   "maintainers": ["@carlosplanchon"],
   "license": "MIT",
-  "monetization": "none",
   "repository": "https://github.com/carlosplanchon/enodia",
   "open_to_contributions": true
 }

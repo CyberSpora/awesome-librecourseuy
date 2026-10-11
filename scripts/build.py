@@ -61,7 +61,13 @@ def render_readme(entries: list[Entry], categories: list[str]) -> str:
 
 
 def feed_entry(entry: Entry) -> dict:
-    return {**entry.model_dump(mode="json", exclude_none=True), "relationship": entry.relationship}
+    # open_source is derived: listing requires a public repo under an accepted
+    # license, so anything in the feed is open source by construction.
+    return {
+        **entry.model_dump(mode="json", exclude_none=True),
+        "relationship": entry.relationship,
+        "open_source": True,
+    }
 
 
 def render_feed(entries: list[Entry], categories: list[str]) -> str:

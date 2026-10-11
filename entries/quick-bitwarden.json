@@ -7,7 +7,6 @@
   "language": ["shell"],
   "maintainers": ["@Kevin-Ramirez127"],
   "license": "GPL-3.0",
-  "monetization": "none",
   "repository": "https://github.com/Kevin-Ramirez127/quick-bitwarden",
   "open_to_contributions": true
 }

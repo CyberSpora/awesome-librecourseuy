@@ -133,7 +133,6 @@ All commits must be **GPG-signed**. See the
   "language": ["Python", "TypeScript"],
   "maintainers": ["@your-handle"],
   "license": "MIT",
-  "monetization": "none",
   "repository": "https://github.com/LibreCourseUY/my-project",
   "open_to_contributions": true
 }
@@ -149,7 +148,7 @@ All commits must be **GPG-signed**. See the
 | `language` | no | Programming languages, as a list. |
 | `maintainers` | no | GitHub handles, each starting with `@`. |
 | `license` | yes | One of the SPDX identifiers in [`licenses.json`](licenses.json), exactly as GitHub detects it (e.g. `MIT`, or `GPL-3.0` rather than `GPL-3.0-or-later`). |
-| `monetization` | no | One of `none`, `donations`, `subscription`, `freemium`, `paid`, `ads`, `sponsorship`, `other`. Defaults to `none`. |
+| `commercial` | no | `true` or `false`: whether the project is sold or otherwise monetized (paid product, ads, subscription...). Defaults to `false` (non-commercial). |
 | `repository` | yes | Source repository URL (`http`/`https`). Must be unique. Only open source projects are listed. |
 | `open_to_contributions` | no | `true` or `false`. Whether the project accepts outside contributions. If omitted it is unknown, never assumed, and left out of the feed. |
 

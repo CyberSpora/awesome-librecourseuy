@@ -160,20 +160,10 @@
         "Zlib"
       ]
     },
-    "monetization": {
-      "default": "none",
-      "enum": [
-        "none",
-        "donations",
-        "subscription",
-        "freemium",
-        "paid",
-        "ads",
-        "sponsorship",
-        "other"
-      ],
-      "title": "Monetization",
-      "type": "string"
+    "commercial": {
+      "default": false,
+      "title": "Commercial",
+      "type": "boolean"
     },
     "repository": {
       "format": "uri",
