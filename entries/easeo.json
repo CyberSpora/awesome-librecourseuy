@@ -1,0 +1,19 @@
+{
+  "name": "easeo",
+  "url": "https://easeo.emiliano-go.com",
+  "description": "Deterministic SEO metadata library for content platforms: canonical URLs, titles, robots, Open Graph, Twitter Cards and JSON-LD from content entities. One Rust core with Python, Node.js and Rust APIs.",
+  "category": "Libraries",
+  "tags": [
+    "seo",
+    "rust",
+    "typescript"
+  ],
+  "language": [
+    "Rust"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/easeo"
+}

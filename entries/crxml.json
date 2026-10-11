@@ -1,0 +1,20 @@
+{
+  "name": "crxml",
+  "url": "https://crxml.emiliano-go.com",
+  "description": "High-performance Crystal Reports XML parser built on the rypipe columnar ingestion engine.",
+  "category": "Data & Analytics",
+  "tags": [
+    "xml",
+    "data",
+    "rust"
+  ],
+  "language": [
+    "Python",
+    "Rust"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/crxml"
+}

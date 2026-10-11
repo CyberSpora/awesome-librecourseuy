@@ -1,0 +1,19 @@
+{
+  "name": "neurafly",
+  "url": "https://github.com/emiliano-go/neurafly",
+  "description": "Real-time audio visualizer TUI: listens to whatever your PC is playing and renders neurons firing. No samples, no playback tricks.",
+  "category": "CLI Tools",
+  "tags": [
+    "tui",
+    "audio",
+    "cli"
+  ],
+  "language": [
+    "Rust"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/neurafly"
+}

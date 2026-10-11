@@ -1,0 +1,18 @@
+{
+  "name": "heard",
+  "url": "https://github.com/emiliano-go/heard",
+  "description": "Voice-controlled tooling daemon for Linux using Needle.",
+  "category": "Automation",
+  "tags": [
+    "linux",
+    "automation"
+  ],
+  "language": [
+    "Python"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/heard"
+}

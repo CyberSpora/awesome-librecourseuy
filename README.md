@@ -3,7 +3,7 @@
 
 A curated list of open source projects built by Uruguayan developers.
 
-4 projects and counting. Every entry is a JSON file in [`entries/`](entries/),
+25 projects and counting. Every entry is a JSON file in [`entries/`](entries/),
 validated by CI. Want to add yours? Read
 [CONTRIBUTING.md](CONTRIBUTING.md); you never edit this README by hand.
 
@@ -14,15 +14,54 @@ explains what listing means and when an entry is removed.
 ## Projects
 
 <!-- PROJECTS:START -->
+### Web
+
+- [mapcreator](https://mapcreator.emiliano-go.com/): Interactive multi-floor building map editor with A* pathfinding. Paint tile-based floor plans, define vertical connections and visualize shortest paths across floors. ([@emiliano-go](https://github.com/emiliano-go))
+
 ### Desktop
 
+- [postal](https://github.com/emiliano-go/postal): A standalone native WhatsApp client that speaks the multi-device protocol directly: no webview, and history sync is a choice rather than a download. ([@emiliano-go](https://github.com/emiliano-go))
 - [quick-bitwarden](https://github.com/Kevin-Ramirez127/quick-bitwarden): A quick way to copy your Bitwarden passwords that works on rofi/wofi window. ([@Kevin-Ramirez127](https://github.com/Kevin-Ramirez127))
+
+### CLI Tools
+
+- [detrack](https://github.com/emiliano-go/detrack): Strip tracking parameters from URLs. Deterministically. Zero dependencies. ([@emiliano-go](https://github.com/emiliano-go))
+- [neurafly](https://github.com/emiliano-go/neurafly): Real-time audio visualizer TUI: listens to whatever your PC is playing and renders neurons firing. No samples, no playback tricks. ([@emiliano-go](https://github.com/emiliano-go))
+
+### Libraries
+
+- [acrresolv](https://github.com/emiliano-go/acrresolv): Hybrid acronym resolver: rules + lookup + ML. 95.5% accuracy on unseen data, <1ms inference. ([@emiliano-go](https://github.com/emiliano-go))
+- [easeo](https://easeo.emiliano-go.com/): Deterministic SEO metadata library for content platforms: canonical URLs, titles, robots, Open Graph, Twitter Cards and JSON-LD from content entities. One Rust core with Python, Node.js and Rust APIs. ([@emiliano-go](https://github.com/emiliano-go))
+- [lambda-compiler](https://github.com/emiliano-go/lambda-compiler): Compile Python lambdas into declarative filter specs via bytecode analysis. ([@emiliano-go](https://github.com/emiliano-go))
+- [schemap](https://schemap.emiliano-go.com/): Automatic Pydantic schemas for SQLAlchemy models. ([@emiliano-go](https://github.com/emiliano-go))
+- [tagurl](https://github.com/emiliano-go/tagurl): Accepts a natural language query and returns ranked semantic tags and an SEO-friendly URL slug as structured JSON. ([@emiliano-go](https://github.com/emiliano-go))
 
 ### Developer Tools
 
+- [ClickVault](https://clickvault.emiliano-go.com/): HashiCorp Vault database secrets engine plugin for ClickHouse. ([@emiliano-go](https://github.com/emiliano-go))
+- [DBWarden](https://dbwarden.org/): Declarative database migration system for Python/SQLAlchemy projects: your models are the source code, SQL is the output. ([@emiliano-go](https://github.com/emiliano-go))
 - [Enodia](https://github.com/carlosplanchon/enodia): Wardriving on foot, without GPS or internet. ([@carlosplanchon](https://github.com/carlosplanchon))
+- [hestia](https://github.com/emiliano-go/hestia): Self-hostable agentic project cockpit with persistent Totem memory. ([@emiliano-go](https://github.com/emiliano-go))
+- [laya-coding-decisions](https://github.com/emiliano-go/laya-coding-decisions): Training data and harness to turn Laya into a coding-agent judge for the hestia decision engine. ([@emiliano-go](https://github.com/emiliano-go))
 - [SMCLI.py](https://github.com/joaquinlarroca/smclipy): Downloads, tags, and organizes music from YouTube and SoundCloud with manually set metadata including multiple artists, album, and cover art. ([@joaquinlarroca](https://github.com/joaquinlarroca))
+- [Totem](https://github.com/emiliano-go/totem): Persistent memory layer for engineering agents. MCP server + CLI. ([@emiliano-go](https://github.com/emiliano-go))
 - [TrustSight](https://trustsight.org/): AUR package update vetting tool. Run it before yay -Syu. ([@emiliano-go](https://github.com/emiliano-go))
+- [TrustSight Harness](https://github.com/emiliano-go/trustsight-harness): Reproducible, cost-tracked adversarial measurement harness for TrustSight. ([@emiliano-go](https://github.com/emiliano-go))
+
+### Data & Analytics
+
+- [crxml](https://crxml.emiliano-go.com/): High-performance Crystal Reports XML parser built on the rypipe columnar ingestion engine. ([@emiliano-go](https://github.com/emiliano-go))
+- [rypipe](https://rypipe.emiliano-go.com/): Format- and source-agnostic ingestion framework: a common execution runtime for turning record-oriented data sources into typed columnar data. Rust core, Python bindings. ([@emiliano-go](https://github.com/emiliano-go))
+
+### Automation
+
+- [heard](https://github.com/emiliano-go/heard): Voice-controlled tooling daemon for Linux using Needle. ([@emiliano-go](https://github.com/emiliano-go))
+- [interferon](https://github.com/emiliano-go/interferon): Immune-inspired signaling for Docker stacks: containers broadcast typed failure and recovery signals so the fleet can respond like neighboring cells. ([@emiliano-go](https://github.com/emiliano-go))
+- [vigil](https://github.com/emiliano-go/vigil): GitHub activity Prefect flow: scheduled ETL of your own contribution data. ([@emiliano-go](https://github.com/emiliano-go))
+
+### Other
+
+- [dsig](https://github.com/emiliano-go/dsig): GPG message signing for Vencord / Vesktop: every message carries a verifiable authorship attestation, not encryption. ([@emiliano-go](https://github.com/emiliano-go))
 <!-- PROJECTS:END -->
 
 ## License

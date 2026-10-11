@@ -1,0 +1,20 @@
+{
+  "name": "rypipe",
+  "url": "https://rypipe.emiliano-go.com/",
+  "description": "Format- and source-agnostic ingestion framework: a common execution runtime for turning record-oriented data sources into typed columnar data. Rust core, Python bindings.",
+  "category": "Data & Analytics",
+  "tags": [
+    "etl",
+    "streaming",
+    "data"
+  ],
+  "language": [
+    "Rust",
+    "Python"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/rypipe"
+}

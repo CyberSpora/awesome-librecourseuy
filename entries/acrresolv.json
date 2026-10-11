@@ -1,0 +1,18 @@
+{
+  "name": "acrresolv",
+  "url": "https://github.com/emiliano-go/acrresolv",
+  "description": "Hybrid acronym resolver: rules + lookup + ML. 95.5% accuracy on unseen data, <1ms inference.",
+  "category": "Libraries",
+  "tags": [
+    "nlp",
+    "python"
+  ],
+  "language": [
+    "Python"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/acrresolv"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "detrack",
+  "url": "https://github.com/emiliano-go/detrack",
+  "description": "Strip tracking parameters from URLs. Deterministically. Zero dependencies.",
+  "category": "CLI Tools",
+  "tags": [
+    "privacy",
+    "urls",
+    "cli"
+  ],
+  "language": [
+    "Python"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/detrack"
+}

@@ -1,0 +1,17 @@
+{
+  "name": "lambda-compiler",
+  "url": "https://github.com/emiliano-go/lambda-compiler",
+  "description": "Compile Python lambdas into declarative filter specs via bytecode analysis.",
+  "category": "Libraries",
+  "tags": [
+    "python"
+  ],
+  "language": [
+    "Python"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/lambda-compiler"
+}

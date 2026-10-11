@@ -1,0 +1,19 @@
+{
+  "name": "DBWarden",
+  "url": "https://dbwarden.org",
+  "description": "Declarative database migration system for Python/SQLAlchemy projects: your models are the source code, SQL is the output.",
+  "category": "Developer Tools",
+  "tags": [
+    "python",
+    "postgres",
+    "sqlalchemy"
+  ],
+  "language": [
+    "Python"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/dbwarden-org/dbwarden"
+}

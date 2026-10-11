@@ -17,6 +17,180 @@
   ],
   "entries": [
     {
+      "name": "heard",
+      "url": "https://github.com/emiliano-go/heard",
+      "description": "Voice-controlled tooling daemon for Linux using Needle.",
+      "category": "Automation",
+      "tags": [
+        "linux",
+        "automation"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/heard",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "interferon",
+      "url": "https://github.com/emiliano-go/interferon",
+      "description": "Immune-inspired signaling for Docker stacks: containers broadcast typed failure and recovery signals so the fleet can respond like neighboring cells.",
+      "category": "Automation",
+      "tags": [
+        "docker",
+        "automation"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/interferon",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "vigil",
+      "url": "https://github.com/emiliano-go/vigil",
+      "description": "GitHub activity Prefect flow: scheduled ETL of your own contribution data.",
+      "category": "Automation",
+      "tags": [
+        "data",
+        "automation"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/vigil",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "detrack",
+      "url": "https://github.com/emiliano-go/detrack",
+      "description": "Strip tracking parameters from URLs. Deterministically. Zero dependencies.",
+      "category": "CLI Tools",
+      "tags": [
+        "privacy",
+        "urls",
+        "cli"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/detrack",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "neurafly",
+      "url": "https://github.com/emiliano-go/neurafly",
+      "description": "Real-time audio visualizer TUI: listens to whatever your PC is playing and renders neurons firing. No samples, no playback tricks.",
+      "category": "CLI Tools",
+      "tags": [
+        "tui",
+        "audio",
+        "cli"
+      ],
+      "language": [
+        "Rust"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/neurafly",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "crxml",
+      "url": "https://crxml.emiliano-go.com/",
+      "description": "High-performance Crystal Reports XML parser built on the rypipe columnar ingestion engine.",
+      "category": "Data & Analytics",
+      "tags": [
+        "xml",
+        "data",
+        "rust"
+      ],
+      "language": [
+        "Python",
+        "Rust"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/crxml",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "rypipe",
+      "url": "https://rypipe.emiliano-go.com/",
+      "description": "Format- and source-agnostic ingestion framework: a common execution runtime for turning record-oriented data sources into typed columnar data. Rust core, Python bindings.",
+      "category": "Data & Analytics",
+      "tags": [
+        "etl",
+        "streaming",
+        "data"
+      ],
+      "language": [
+        "Rust",
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/rypipe",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "postal",
+      "url": "https://github.com/emiliano-go/postal",
+      "description": "A standalone native WhatsApp client that speaks the multi-device protocol directly: no webview, and history sync is a choice rather than a download.",
+      "category": "Desktop",
+      "tags": [
+        "whatsapp",
+        "privacy"
+      ],
+      "language": [
+        "Rust"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/postal",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
       "name": "quick-bitwarden",
       "url": "https://github.com/Kevin-Ramirez127/quick-bitwarden",
       "description": "A quick way to copy your Bitwarden passwords that works on rofi/wofi window.",
@@ -34,6 +208,50 @@
       "commercial": false,
       "repository": "https://github.com/Kevin-Ramirez127/quick-bitwarden",
       "open_to_contributions": true,
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "ClickVault",
+      "url": "https://clickvault.emiliano-go.com/",
+      "description": "HashiCorp Vault database secrets engine plugin for ClickHouse.",
+      "category": "Developer Tools",
+      "tags": [
+        "go",
+        "clickhouse",
+        "security"
+      ],
+      "language": [
+        "Go"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/clickvault",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "DBWarden",
+      "url": "https://dbwarden.org/",
+      "description": "Declarative database migration system for Python/SQLAlchemy projects: your models are the source code, SQL is the output.",
+      "category": "Developer Tools",
+      "tags": [
+        "python",
+        "postgres",
+        "sqlalchemy"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/dbwarden-org/dbwarden",
       "relationship": "community",
       "open_source": true
     },
@@ -63,6 +281,47 @@
       "open_source": true
     },
     {
+      "name": "hestia",
+      "url": "https://github.com/emiliano-go/hestia",
+      "description": "Self-hostable agentic project cockpit with persistent Totem memory.",
+      "category": "Developer Tools",
+      "tags": [
+        "ai-agents",
+        "automation"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/hestia",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "laya-coding-decisions",
+      "url": "https://github.com/emiliano-go/laya-coding-decisions",
+      "description": "Training data and harness to turn Laya into a coding-agent judge for the hestia decision engine.",
+      "category": "Developer Tools",
+      "tags": [
+        "ai-agents"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "Apache-2.0",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/laya-coding-decisions",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
       "name": "SMCLI.py",
       "url": "https://github.com/joaquinlarroca/smclipy",
       "description": "Downloads, tags, and organizes music from YouTube and SoundCloud with manually set metadata including multiple artists, album, and cover art.",
@@ -86,6 +345,28 @@
       "open_source": true
     },
     {
+      "name": "Totem",
+      "url": "https://github.com/emiliano-go/totem",
+      "description": "Persistent memory layer for engineering agents. MCP server + CLI.",
+      "category": "Developer Tools",
+      "tags": [
+        "ai-agents",
+        "mcp",
+        "sqlite"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/totem",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
       "name": "TrustSight",
       "url": "https://trustsight.org/",
       "description": "AUR package update vetting tool. Run it before yay -Syu.",
@@ -105,6 +386,178 @@
       "license": "MIT",
       "commercial": false,
       "repository": "https://github.com/emiliano-go/trustsight",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "TrustSight Harness",
+      "url": "https://github.com/emiliano-go/trustsight-harness",
+      "description": "Reproducible, cost-tracked adversarial measurement harness for TrustSight.",
+      "category": "Developer Tools",
+      "tags": [
+        "security",
+        "supply-chain",
+        "aur"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/trustsight-harness",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "acrresolv",
+      "url": "https://github.com/emiliano-go/acrresolv",
+      "description": "Hybrid acronym resolver: rules + lookup + ML. 95.5% accuracy on unseen data, <1ms inference.",
+      "category": "Libraries",
+      "tags": [
+        "nlp",
+        "python"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/acrresolv",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "easeo",
+      "url": "https://easeo.emiliano-go.com/",
+      "description": "Deterministic SEO metadata library for content platforms: canonical URLs, titles, robots, Open Graph, Twitter Cards and JSON-LD from content entities. One Rust core with Python, Node.js and Rust APIs.",
+      "category": "Libraries",
+      "tags": [
+        "seo",
+        "rust",
+        "typescript"
+      ],
+      "language": [
+        "Rust"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/easeo",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "lambda-compiler",
+      "url": "https://github.com/emiliano-go/lambda-compiler",
+      "description": "Compile Python lambdas into declarative filter specs via bytecode analysis.",
+      "category": "Libraries",
+      "tags": [
+        "python"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/lambda-compiler",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "schemap",
+      "url": "https://schemap.emiliano-go.com/",
+      "description": "Automatic Pydantic schemas for SQLAlchemy models.",
+      "category": "Libraries",
+      "tags": [
+        "sqlalchemy",
+        "pydantic",
+        "python"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/schemap",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "tagurl",
+      "url": "https://github.com/emiliano-go/tagurl",
+      "description": "Accepts a natural language query and returns ranked semantic tags and an SEO-friendly URL slug as structured JSON.",
+      "category": "Libraries",
+      "tags": [
+        "seo",
+        "python"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/tagurl",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "dsig",
+      "url": "https://github.com/emiliano-go/dsig",
+      "description": "GPG message signing for Vencord / Vesktop: every message carries a verifiable authorship attestation, not encryption.",
+      "category": "Other",
+      "tags": [
+        "gpg",
+        "discord",
+        "security"
+      ],
+      "language": [
+        "TypeScript"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "GPL-3.0",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/dsig",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "mapcreator",
+      "url": "https://mapcreator.emiliano-go.com/",
+      "description": "Interactive multi-floor building map editor with A* pathfinding. Paint tile-based floor plans, define vertical connections and visualize shortest paths across floors.",
+      "category": "Web",
+      "tags": [
+        "react",
+        "typescript"
+      ],
+      "language": [
+        "TypeScript",
+        "React"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/emiliano-go/mapcreator",
       "relationship": "community",
       "open_source": true
     }

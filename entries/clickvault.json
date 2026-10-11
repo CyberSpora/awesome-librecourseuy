@@ -1,0 +1,19 @@
+{
+  "name": "ClickVault",
+  "url": "https://clickvault.emiliano-go.com",
+  "description": "HashiCorp Vault database secrets engine plugin for ClickHouse.",
+  "category": "Developer Tools",
+  "tags": [
+    "go",
+    "clickhouse",
+    "security"
+  ],
+  "language": [
+    "Go"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/clickvault"
+}

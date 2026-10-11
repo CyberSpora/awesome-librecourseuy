@@ -1,0 +1,19 @@
+{
+  "name": "TrustSight Harness",
+  "url": "https://github.com/emiliano-go/trustsight-harness",
+  "description": "Reproducible, cost-tracked adversarial measurement harness for TrustSight.",
+  "category": "Developer Tools",
+  "tags": [
+    "security",
+    "supply-chain",
+    "aur"
+  ],
+  "language": [
+    "Python"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/trustsight-harness"
+}

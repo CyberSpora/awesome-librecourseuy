@@ -1,0 +1,17 @@
+{
+  "name": "laya-coding-decisions",
+  "url": "https://github.com/emiliano-go/laya-coding-decisions",
+  "description": "Training data and harness to turn Laya into a coding-agent judge for the hestia decision engine.",
+  "category": "Developer Tools",
+  "tags": [
+    "ai-agents"
+  ],
+  "language": [
+    "Python"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "Apache-2.0",
+  "repository": "https://github.com/emiliano-go/laya-coding-decisions"
+}

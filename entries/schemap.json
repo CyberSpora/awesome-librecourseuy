@@ -1,0 +1,19 @@
+{
+  "name": "schemap",
+  "url": "https://schemap.emiliano-go.com",
+  "description": "Automatic Pydantic schemas for SQLAlchemy models.",
+  "category": "Libraries",
+  "tags": [
+    "sqlalchemy",
+    "pydantic",
+    "python"
+  ],
+  "language": [
+    "Python"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/schemap"
+}

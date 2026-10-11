@@ -1,0 +1,19 @@
+{
+  "name": "mapcreator",
+  "url": "https://mapcreator.emiliano-go.com",
+  "description": "Interactive multi-floor building map editor with A* pathfinding. Paint tile-based floor plans, define vertical connections and visualize shortest paths across floors.",
+  "category": "Web",
+  "tags": [
+    "react",
+    "typescript"
+  ],
+  "language": [
+    "TypeScript",
+    "React"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/mapcreator"
+}

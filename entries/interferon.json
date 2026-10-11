@@ -1,0 +1,18 @@
+{
+  "name": "interferon",
+  "url": "https://github.com/emiliano-go/interferon",
+  "description": "Immune-inspired signaling for Docker stacks: containers broadcast typed failure and recovery signals so the fleet can respond like neighboring cells.",
+  "category": "Automation",
+  "tags": [
+    "docker",
+    "automation"
+  ],
+  "language": [
+    "Python"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/interferon"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Totem",
+  "url": "https://github.com/emiliano-go/totem",
+  "description": "Persistent memory layer for engineering agents. MCP server + CLI.",
+  "category": "Developer Tools",
+  "tags": [
+    "ai-agents",
+    "mcp",
+    "sqlite"
+  ],
+  "language": [
+    "Python"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/totem"
+}

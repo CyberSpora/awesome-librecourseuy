@@ -1,0 +1,18 @@
+{
+  "name": "postal",
+  "url": "https://github.com/emiliano-go/postal",
+  "description": "A standalone native WhatsApp client that speaks the multi-device protocol directly: no webview, and history sync is a choice rather than a download.",
+  "category": "Desktop",
+  "tags": [
+    "whatsapp",
+    "privacy"
+  ],
+  "language": [
+    "Rust"
+  ],
+  "maintainers": [
+    "@emiliano-go"
+  ],
+  "license": "MIT",
+  "repository": "https://github.com/emiliano-go/postal"
+}
