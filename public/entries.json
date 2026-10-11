@@ -741,6 +741,26 @@
       "open_source": true
     },
     {
+      "name": "Easy Calendar",
+      "url": "https://github.com/LibreCourseUY/easy-calendar",
+      "description": "A lightweight year-view calendar web app built with Preact and Vite. Load your events via a JSON environment variable and view them month by month.",
+      "category": "Web",
+      "tags": [
+        "javascript"
+      ],
+      "language": [
+        "JavaScript"
+      ],
+      "maintainers": [
+        "@emiliano-go"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/LibreCourseUY/easy-calendar",
+      "relationship": "official",
+      "open_source": true
+    },
+    {
       "name": "libreblog",
       "url": "https://github.com/LibreCourseUY/libreblog",
       "description": "Blog for LibreCourseUY built with Hugo and auto-deployed via GitHub Actions.",

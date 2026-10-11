@@ -1,0 +1,10 @@
+{
+  "name": "Easy Calendar",
+  "description": "A lightweight year-view calendar web app built with Preact and Vite. Load your events via a JSON environment variable and view them month by month.",
+  "category": "Web",
+  "tags": ["javascript"],
+  "language": ["JavaScript"],
+  "maintainers": ["@emiliano-go"],
+  "license": "MIT",
+  "repository": "https://github.com/LibreCourseUY/easy-calendar"
+}
