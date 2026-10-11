@@ -1,0 +1,10 @@
+{
+  "name": "Keel",
+  "url": "https://keel-linux.github.io",
+  "description": "Library and CLI for declarative Keel Linux appliances, compatible with TurnKey Linux appliances.",
+  "category": "Developer Tools",
+  "tags": ["linux", "docker", "cli"],
+  "language": ["Python"],
+  "license": "GPL-3.0",
+  "repository": "https://github.com/Keel-Linux/keel"
+}

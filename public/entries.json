@@ -433,6 +433,26 @@
       "open_source": true
     },
     {
+      "name": "Keel",
+      "url": "https://keel-linux.github.io/",
+      "description": "Library and CLI for declarative Keel Linux appliances, compatible with TurnKey Linux appliances.",
+      "category": "Developer Tools",
+      "tags": [
+        "linux",
+        "docker",
+        "cli"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [],
+      "license": "GPL-3.0",
+      "commercial": false,
+      "repository": "https://github.com/Keel-Linux/keel",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
       "name": "laya-coding-decisions",
       "url": "https://github.com/emiliano-go/laya-coding-decisions",
       "description": "Training data and harness to turn Laya into a coding-agent judge for the hestia decision engine.",
