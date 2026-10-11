@@ -1,0 +1,9 @@
+{
+  "name": "react-components",
+  "description": "Collaborative React component library for developers taking their first steps in React.",
+  "category": "Libraries",
+  "tags": ["react"],
+  "language": ["TypeScript"],
+  "license": "MIT",
+  "repository": "https://github.com/LibreCourseUY/react-components"
+}

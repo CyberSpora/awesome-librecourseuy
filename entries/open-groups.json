@@ -1,0 +1,9 @@
+{
+  "name": "open-groups",
+  "description": "Small self-hosted directory for groups, with configurable branding.",
+  "category": "Web",
+  "tags": [],
+  "language": ["HTML", "Python"],
+  "license": "MIT",
+  "repository": "https://github.com/LibreCourseUY/open-groups"
+}

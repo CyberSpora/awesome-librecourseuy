@@ -17,6 +17,41 @@
   ],
   "entries": [
     {
+      "name": "audit-log-microservice",
+      "url": "https://github.com/LibreCourseUY/audit-log-microservice",
+      "description": "Microservice for centralized audit logging.",
+      "category": "APIs",
+      "tags": [],
+      "language": [],
+      "maintainers": [],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/LibreCourseUY/audit-log-microservice",
+      "relationship": "official",
+      "open_source": true
+    },
+    {
+      "name": "UruAPI",
+      "url": "https://github.com/LibreCourseUY/UruAPI",
+      "description": "API wrapping datosuruguay.com with programmatic access to Uruguay's daily economic indicators from official sources.",
+      "category": "APIs",
+      "tags": [
+        "fastapi",
+        "python",
+        "open-data",
+        "docker"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/LibreCourseUY/UruAPI",
+      "relationship": "official",
+      "open_source": true
+    },
+    {
       "name": "heard",
       "url": "https://github.com/emiliano-go/heard",
       "description": "Voice-controlled tooling daemon for Linux using Needle.",
@@ -80,6 +115,26 @@
       "open_source": true
     },
     {
+      "name": "moodleTweaks",
+      "url": "https://github.com/LibreCourseUY/moodleTweaks",
+      "description": "Extensión de navegador que unifica el estilo visual de Moodle con modo oscuro automático, escala tipográfica y barra de próximas entregas.",
+      "category": "Browser Extensions",
+      "tags": [
+        "moodle"
+      ],
+      "language": [
+        "JavaScript",
+        "CSS",
+        "HTML"
+      ],
+      "maintainers": [],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/LibreCourseUY/moodleTweaks",
+      "relationship": "official",
+      "open_source": true
+    },
+    {
       "name": "detrack",
       "url": "https://github.com/emiliano-go/detrack",
       "description": "Strip tracking parameters from URLs. Deterministically. Zero dependencies.",
@@ -121,6 +176,50 @@
       "commercial": false,
       "repository": "https://github.com/emiliano-go/neurafly",
       "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "smclipy",
+      "url": "https://pypi.org/project/smclipy/",
+      "description": "A Python script designed to streamline downloading, tagging, and organizing music from YouTube and SoundCloud. It allows you to batch-download audio, manually set metadata (including multiple artists, album, and cover art).",
+      "category": "CLI Tools",
+      "tags": [
+        "music",
+        "musicbrainz",
+        "yt-dlp",
+        "cli"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [
+        "@joaquinlarroca"
+      ],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/joaquinlarroca/smclipy",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "ArgosUY",
+      "url": "https://github.com/LibreCourseUY/ArgosUY",
+      "description": "Open-source platform that indexes Uruguay's GitHub ecosystem and exposes it through a FastAPI backend.",
+      "category": "Data & Analytics",
+      "tags": [
+        "python",
+        "fastapi",
+        "docker",
+        "data"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/LibreCourseUY/ArgosUY",
+      "relationship": "official",
       "open_source": true
     },
     {
@@ -322,26 +421,20 @@
       "open_source": true
     },
     {
-      "name": "SMCLI.py",
-      "url": "https://github.com/joaquinlarroca/smclipy",
-      "description": "Downloads, tags, and organizes music from YouTube and SoundCloud with manually set metadata including multiple artists, album, and cover art.",
+      "name": "scripts",
+      "url": "https://github.com/LibreCourseUY/scripts",
+      "description": "A collection of community-contributed utility scripts, organized by programming language.",
       "category": "Developer Tools",
-      "tags": [
-        "music",
-        "musicbrainz",
-        "yt-dlp",
-        "cli"
-      ],
+      "tags": [],
       "language": [
+        "Shell",
         "Python"
       ],
-      "maintainers": [
-        "@joaquinlarroca"
-      ],
+      "maintainers": [],
       "license": "MIT",
       "commercial": false,
-      "repository": "https://github.com/joaquinlarroca/smclipy",
-      "relationship": "community",
+      "repository": "https://github.com/LibreCourseUY/scripts",
+      "relationship": "official",
       "open_source": true
     },
     {
@@ -475,6 +568,24 @@
       "open_source": true
     },
     {
+      "name": "react-components",
+      "url": "https://github.com/LibreCourseUY/react-components",
+      "description": "Collaborative React component library for developers taking their first steps in React.",
+      "category": "Libraries",
+      "tags": [
+        "react"
+      ],
+      "language": [
+        "TypeScript"
+      ],
+      "maintainers": [],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/LibreCourseUY/react-components",
+      "relationship": "official",
+      "open_source": true
+    },
+    {
       "name": "schemap",
       "url": "https://schemap.emiliano-go.com/",
       "description": "Automatic Pydantic schemas for SQLAlchemy models.",
@@ -518,6 +629,20 @@
       "open_source": true
     },
     {
+      "name": "brand",
+      "url": "https://github.com/LibreCourseUY/brand",
+      "description": "Official brand assets, logos, and visual identity guidelines for LibreCourseUY.",
+      "category": "Other",
+      "tags": [],
+      "language": [],
+      "maintainers": [],
+      "license": "CC-BY-4.0",
+      "commercial": false,
+      "repository": "https://github.com/LibreCourseUY/brand",
+      "relationship": "official",
+      "open_source": true
+    },
+    {
       "name": "dsig",
       "url": "https://github.com/emiliano-go/dsig",
       "description": "GPG message signing for Vencord / Vesktop: every message carries a verifiable authorship attestation, not encryption.",
@@ -540,6 +665,24 @@
       "open_source": true
     },
     {
+      "name": "libreblog",
+      "url": "https://github.com/LibreCourseUY/libreblog",
+      "description": "Blog for LibreCourseUY built with Hugo and auto-deployed via GitHub Actions.",
+      "category": "Web",
+      "tags": [
+        "hugo"
+      ],
+      "language": [
+        "Python"
+      ],
+      "maintainers": [],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/LibreCourseUY/libreblog",
+      "relationship": "official",
+      "open_source": true
+    },
+    {
       "name": "mapcreator",
       "url": "https://mapcreator.emiliano-go.com/",
       "description": "Interactive multi-floor building map editor with A* pathfinding. Paint tile-based floor plans, define vertical connections and visualize shortest paths across floors.",
@@ -559,6 +702,43 @@
       "commercial": false,
       "repository": "https://github.com/emiliano-go/mapcreator",
       "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "open-groups",
+      "url": "https://github.com/LibreCourseUY/open-groups",
+      "description": "Small self-hosted directory for groups, with configurable branding.",
+      "category": "Web",
+      "tags": [],
+      "language": [
+        "HTML",
+        "Python"
+      ],
+      "maintainers": [],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/LibreCourseUY/open-groups",
+      "relationship": "official",
+      "open_source": true
+    },
+    {
+      "name": "urumap",
+      "url": "https://github.com/LibreCourseUY/urumap",
+      "description": "Interactive maps of Uruguayan public buildings, rendered from mapcreator JSON.",
+      "category": "Web",
+      "tags": [
+        "vue",
+        "geolocation"
+      ],
+      "language": [
+        "Vue",
+        "JavaScript"
+      ],
+      "maintainers": [],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/LibreCourseUY/urumap",
+      "relationship": "official",
       "open_source": true
     }
   ]

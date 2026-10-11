@@ -1,0 +1,9 @@
+{
+  "name": "scripts",
+  "description": "A collection of community-contributed utility scripts, organized by programming language.",
+  "category": "Developer Tools",
+  "tags": [],
+  "language": ["Shell", "Python"],
+  "license": "MIT",
+  "repository": "https://github.com/LibreCourseUY/scripts"
+}

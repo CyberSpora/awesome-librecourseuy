@@ -1,0 +1,9 @@
+{
+  "name": "libreblog",
+  "description": "Blog for LibreCourseUY built with Hugo and auto-deployed via GitHub Actions.",
+  "category": "Web",
+  "tags": ["hugo"],
+  "language": ["Python"],
+  "license": "MIT",
+  "repository": "https://github.com/LibreCourseUY/libreblog"
+}

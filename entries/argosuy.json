@@ -1,0 +1,9 @@
+{
+  "name": "ArgosUY",
+  "description": "Open-source platform that indexes Uruguay's GitHub ecosystem and exposes it through a FastAPI backend.",
+  "category": "Data & Analytics",
+  "tags": ["python", "fastapi", "docker", "data"],
+  "language": ["Python"],
+  "license": "MIT",
+  "repository": "https://github.com/LibreCourseUY/ArgosUY"
+}

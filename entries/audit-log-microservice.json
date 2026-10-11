@@ -1,0 +1,9 @@
+{
+  "name": "audit-log-microservice",
+  "description": "Microservice for centralized audit logging.",
+  "category": "APIs",
+  "tags": [],
+  "language": [],
+  "license": "MIT",
+  "repository": "https://github.com/LibreCourseUY/audit-log-microservice"
+}

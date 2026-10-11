@@ -1,8 +1,8 @@
 {
-  "name": "SMCLI.py",
-  "url": "https://github.com/joaquinlarroca/smclipy",
-  "description": "Downloads, tags, and organizes music from YouTube and SoundCloud with manually set metadata including multiple artists, album, and cover art.",
-  "category": "Developer Tools",
+  "name": "smclipy",
+  "url": "https://pypi.org/project/smclipy/",
+  "description": "A Python script designed to streamline downloading, tagging, and organizing music from YouTube and SoundCloud. It allows you to batch-download audio, manually set metadata (including multiple artists, album, and cover art).",
+  "category": "CLI Tools",
   "tags": ["music", "musicbrainz", "yt-dlp", "cli"],
   "language": ["Python"],
   "maintainers": ["@joaquinlarroca"],
