@@ -17,6 +17,14 @@
   ],
   "orgs": [
     {
+      "name": "Benav Labs",
+      "url": "https://benav.io/",
+      "description": "Transforming ideas into world class solutions.",
+      "tags": [],
+      "repository": "https://github.com/benavlabs",
+      "relationship": "community"
+    },
+    {
       "name": "DBWarden",
       "url": "https://dbwarden.org/",
       "description": "Home of DBWarden, a declarative database migration system for Python/SQLAlchemy.",
@@ -41,7 +49,7 @@
     {
       "name": "LibreCourseUY",
       "url": "https://github.com/LibreCourseUY",
-      "description": "Community of Uruguayan developers building free software courses and projects.",
+      "description": "Non-profit FOSS community growing the next generation of open source contributors in Latin America.",
       "tags": [],
       "repository": "https://github.com/LibreCourseUY",
       "relationship": "official"

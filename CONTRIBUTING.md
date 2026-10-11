@@ -171,7 +171,7 @@ does not pick it up automatically:
 
 ## Org format
 
-Uruguayan-based open source organizations live in [`orgs/`](orgs/) as their
+Open source organizations from the LCUY ecosystem live in [`orgs/`](orgs/) as their
 own JSON files. They are listed above the projects in the README and feed.
 
 ```json
