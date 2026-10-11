@@ -52,7 +52,7 @@ def render_projects(entries: list[Entry], categories: list[str]) -> str:
 
     lines: list[str] = []
     for name in categories:
-        group = sorted(groups[name], key=lambda e: e.name.lower())
+        group = sorted(groups[name], key=lambda e: (e.commercial, e.name.lower()))
         if not group:
             continue
         lines.append(f"### {name}\n")
@@ -64,7 +64,7 @@ def render_projects(entries: list[Entry], categories: list[str]) -> str:
 def render_orgs(orgs: list[Org]) -> str:
     lines = [
         f"- [{org.name}]({org.url}): {org.description}"
-        for org in sorted(orgs, key=lambda o: o.name.lower())
+        for org in sorted(orgs, key=lambda o: (o.relationship != "official", o.name.lower()))
     ]
     return "\n".join(lines) or "_No orgs yet._"
 
@@ -115,10 +115,13 @@ def render_feed(entries: list[Entry], categories: list[str], orgs: list[Org]) ->
     return json.dumps(
         {
             "categories": categories,
-            "orgs": [org_entry(org) for org in orgs],
+            "orgs": [
+                org_entry(org)
+                for org in sorted(orgs, key=lambda o: (o.relationship != "official", o.name.lower()))
+            ],
             "entries": sorted(
                 (feed_entry(e) for e in entries),
-                key=lambda e: (e["category"], e["name"].lower()),
+                key=lambda e: (e["category"], e["commercial"], e["name"].lower()),
             ),
         },
         ensure_ascii=False,

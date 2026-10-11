@@ -17,6 +17,14 @@
   ],
   "orgs": [
     {
+      "name": "LibreCourseUY",
+      "url": "https://github.com/LibreCourseUY",
+      "description": "Non-profit FOSS community growing the next generation of open source contributors in Latin America.",
+      "tags": [],
+      "repository": "https://github.com/LibreCourseUY",
+      "relationship": "official"
+    },
+    {
       "name": "Benav Labs",
       "url": "https://benav.io/",
       "description": "Transforming ideas into world class solutions.",
@@ -45,14 +53,6 @@
       ],
       "repository": "https://github.com/Keel-Linux",
       "relationship": "community"
-    },
-    {
-      "name": "LibreCourseUY",
-      "url": "https://github.com/LibreCourseUY",
-      "description": "Non-profit FOSS community growing the next generation of open source contributors in Latin America.",
-      "tags": [],
-      "repository": "https://github.com/LibreCourseUY",
-      "relationship": "official"
     }
   ],
   "entries": [

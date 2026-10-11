@@ -27,9 +27,17 @@ SAMPLE_ORG = Org(
     repository="https://github.com/sample-org",
 )
 
+COMMERCIAL = SAMPLE.model_copy(update={"commercial": True, "name": "Aaa Sample"})
+
+OFFICIAL_ORG = Org(
+    name="Zebra Org",
+    description="An official org.",
+    repository="https://github.com/LibreCourseUY",
+)
+
 
 def _self_check() -> None:
-    from build import render_feed, render_projects, render_readme, render_schema
+    from build import render_feed, render_orgs, render_projects, render_readme, render_schema
 
     line = render_projects([SAMPLE], ["Web", "APIs"])
     assert line.startswith("### Web\n"), line
@@ -37,6 +45,12 @@ def _self_check() -> None:
     assert "[@someone](https://github.com/someone)" in line, line
     assert "source" not in line, "no source/extra metadata in the line"
     assert "APIs" not in line, "empty categories must be omitted"
+
+    mixed = render_projects([COMMERCIAL, SAMPLE], ["Web"])
+    assert mixed.index("- [Sample]") < mixed.index("- [Aaa Sample]"), "non-commercial first"
+
+    ordered = render_orgs([SAMPLE_ORG, OFFICIAL_ORG])
+    assert ordered.index("Zebra Org") < ordered.index("Sample Org"), "official orgs first"
 
     readme = render_readme([SAMPLE], ["Web"], [SAMPLE_ORG])
     assert readme.count("<!-- PROJECTS:START -->") == 1
