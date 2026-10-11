@@ -22,7 +22,7 @@ explains what listing means and when an entry is removed.
 
 - [Enodia](https://github.com/carlosplanchon/enodia): Wardriving on foot, without GPS or internet. ([@carlosplanchon](https://github.com/carlosplanchon))
 - [SMCLI.py](https://github.com/joaquinlarroca/smclipy): Downloads, tags, and organizes music from YouTube and SoundCloud with manually set metadata including multiple artists, album, and cover art. ([@joaquinlarroca](https://github.com/joaquinlarroca))
-- [TrustSight](https://trustsight.emiliano-go.com/): AUR package update vetting tool. Run it before yay -Syu. ([@emiliano-go](https://github.com/emiliano-go))
+- [TrustSight](https://trustsight.org/): AUR package update vetting tool. Run it before yay -Syu. ([@emiliano-go](https://github.com/emiliano-go))
 <!-- PROJECTS:END -->
 
 ## License
