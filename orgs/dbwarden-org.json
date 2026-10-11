@@ -2,6 +2,13 @@
   "name": "DBWarden",
   "url": "https://dbwarden.org",
   "description": "Home of DBWarden, a declarative database migration system for Python/SQLAlchemy.",
-  "tags": ["sqlalchemy", "python"],
+  "color": {
+    "light": "#1555d6",
+    "dark": "#7fa6ff"
+  },
+  "tags": [
+    "sqlalchemy",
+    "python"
+  ],
   "repository": "https://github.com/dbwarden-org"
 }

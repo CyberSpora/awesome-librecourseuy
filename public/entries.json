@@ -22,6 +22,10 @@
       "description": "Non-profit FOSS community growing the next generation of open source contributors in Latin America.",
       "tags": [],
       "repository": "https://github.com/LibreCourseUY",
+      "color": {
+        "light": "#106654",
+        "dark": "#5ec2af"
+      },
       "relationship": "official"
     },
     {
@@ -30,6 +34,10 @@
       "description": "Transforming ideas into world class solutions.",
       "tags": [],
       "repository": "https://github.com/benavlabs",
+      "color": {
+        "light": "#4f46e5",
+        "dark": "#818cf8"
+      },
       "relationship": "community"
     },
     {
@@ -41,6 +49,10 @@
         "python"
       ],
       "repository": "https://github.com/dbwarden-org",
+      "color": {
+        "light": "#1555d6",
+        "dark": "#7fa6ff"
+      },
       "relationship": "community"
     },
     {
@@ -52,6 +64,10 @@
         "docker"
       ],
       "repository": "https://github.com/Keel-Linux",
+      "color": {
+        "light": "#005a9e",
+        "dark": "#7dc0f5"
+      },
       "relationship": "community"
     }
   ],

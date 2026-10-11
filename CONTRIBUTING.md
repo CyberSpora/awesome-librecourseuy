@@ -180,6 +180,7 @@ own JSON files. They are listed above the projects in the README and feed.
   "url": "https://my-org.example.com",
   "description": "One sentence about the org.",
   "tags": ["python"],
+  "color": { "light": "#4f46e5", "dark": "#818cf8" },
   "repository": "https://github.com/my-org"
 }
 ```
@@ -190,6 +191,7 @@ own JSON files. They are listed above the projects in the README and feed.
 | `url` | no | Website URL (`http`/`https`). Defaults to `repository`. Must be unique. |
 | `description` | yes | One sentence. |
 | `tags` | no | Free-form keywords from [`tags.json`](tags.json). |
+| `color` | no | Card highlight colors for the site, taken from the org's own branding: `{"light": "#rrggbb", "dark": "#rrggbb"}`. |
 | `repository` | yes | GitHub organization URL (e.g. `https://github.com/my-org`). Must be unique. |
 
 The `relationship` rule from entries applies here too: the LibreCourseUY

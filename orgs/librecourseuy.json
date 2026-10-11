@@ -2,5 +2,9 @@
   "name": "LibreCourseUY",
   "url": "https://librecourse.uy",
   "description": "Non-profit FOSS community growing the next generation of open source contributors in Latin America.",
+  "color": {
+    "light": "#106654",
+    "dark": "#5ec2af"
+  },
   "repository": "https://github.com/LibreCourseUY"
 }

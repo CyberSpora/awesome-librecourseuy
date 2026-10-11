@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Literal
 
@@ -119,6 +120,22 @@ def load_entries() -> list[Entry]:
     return list(load_entry_files().values())
 
 
+class OrgColor(BaseModel):
+    """Brand colors for the org card highlight, one per theme."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    light: str
+    dark: str
+
+    @field_validator("light", "dark")
+    @classmethod
+    def _hex(cls, v: str) -> str:
+        if not re.fullmatch(r"#[0-9a-fA-F]{6}", v):
+            raise ValueError("must be a #rrggbb hex color")
+        return v
+
+
 class Org(BaseModel):
     """A Uruguayan-based open source organization, listed above the projects."""
 
@@ -129,6 +146,7 @@ class Org(BaseModel):
     description: str
     tags: list[str] = []
     repository: HttpUrl
+    color: OrgColor | None = None
 
     @field_validator("name", "description")
     @classmethod

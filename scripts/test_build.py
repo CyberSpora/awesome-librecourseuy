@@ -25,6 +25,7 @@ SAMPLE_ORG = Org(
     name="Sample Org",
     description="A sample org.",
     repository="https://github.com/sample-org",
+    color={"light": "#106654", "dark": "#5ec2af"},
 )
 
 COMMERCIAL = SAMPLE.model_copy(update={"commercial": True, "name": "Aaa Sample"})
@@ -73,7 +74,20 @@ def _self_check() -> None:
     assert feed["entries"][0]["open_source"] is True, "listing requires public OSS"
     assert feed["orgs"][0]["name"] == "Sample Org"
     assert feed["orgs"][0]["relationship"] == "community"
+    assert feed["orgs"][0]["color"] == {"light": "#106654", "dark": "#5ec2af"}, "color in feed"
     assert str(SAMPLE_ORG.url) == "https://github.com/sample-org", "org url defaults to repository"
+
+    try:
+        Org(
+            name="Bad Color",
+            description="d",
+            repository="https://github.com/bad-color",
+            color={"light": "red", "dark": "#000000"},
+        )
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("non-hex org color accepted")
 
     bare = Entry(
         name="Bare",

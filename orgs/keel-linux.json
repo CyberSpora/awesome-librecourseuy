@@ -2,6 +2,13 @@
   "name": "Keel Linux",
   "url": "https://keel-linux.github.io",
   "description": "Declarative, layered, IPv6-first system-container appliances, compatible with TurnKey Linux appliances.",
-  "tags": ["linux", "docker"],
+  "color": {
+    "light": "#005a9e",
+    "dark": "#7dc0f5"
+  },
+  "tags": [
+    "linux",
+    "docker"
+  ],
   "repository": "https://github.com/Keel-Linux"
 }
