@@ -1,0 +1,9 @@
+{
+  "name": "Blue_tornet",
+  "description": "is a tor proxy whit isolate circuits",
+  "category": "other",
+  "tags": ["javascript", "tor"],
+  "language": ["Javascript"],
+  "license": "MIT",
+  "repository": "https://github.com/netaru3/Blue_tornet"
+}
