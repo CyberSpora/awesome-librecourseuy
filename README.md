@@ -72,6 +72,7 @@ explains what listing means and when an entry is removed.
 - [Totem](https://github.com/emiliano-go/totem): Persistent memory layer for engineering agents. MCP server + CLI. ([@emiliano-go](https://github.com/emiliano-go))
 - [TrustSight](https://trustsight.org/): AUR package update vetting tool. Run it before yay -Syu. ([@emiliano-go](https://github.com/emiliano-go))
 - [TrustSight Harness](https://github.com/emiliano-go/trustsight-harness): Reproducible, cost-tracked adversarial measurement harness for TrustSight. ([@emiliano-go](https://github.com/emiliano-go))
+- [hydra_in_typescript](https://github.com/netaru3/hydra_in_typescript): Is a typescript version of Hydra. ([@netaru3](https://github.com/netaru3))
 
 ### Data & Analytics
 
