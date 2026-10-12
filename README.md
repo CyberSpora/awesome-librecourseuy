@@ -73,6 +73,7 @@ explains what listing means and when an entry is removed.
 - [TrustSight](https://trustsight.org/): AUR package update vetting tool. Run it before yay -Syu. ([@emiliano-go](https://github.com/emiliano-go))
 - [TrustSight Harness](https://github.com/emiliano-go/trustsight-harness): Reproducible, cost-tracked adversarial measurement harness for TrustSight. ([@emiliano-go](https://github.com/emiliano-go))
 - [hydra_in_typescript](https://github.com/netaru3/hydra_in_typescript): Is a typescript version of Hydra. ([@netaru3](https://github.com/netaru3))
+- [tornet](https://github.com/netaru3/tornet): Is a tool of bruteforce whit ip rotation. ([@netaru3](https://github.com/netaru3))
 
 ### Data & Analytics
 
@@ -90,6 +91,7 @@ explains what listing means and when an entry is removed.
 
 - [brand](https://github.com/LibreCourseUY/brand): Official brand assets, logos, and visual identity guidelines for LibreCourseUY.
 - [dsig](https://github.com/emiliano-go/dsig): GPG message signing for Vencord / Vesktop: every message carries a verifiable authorship attestation, not encryption. ([@emiliano-go](https://github.com/emiliano-go))
+- [Blue_tornet](https://github.com/netaru3/Blue_Tornet): Is a proxy that use tor whit isolate of circuits ([@netaru3](https://github.com/netaru3))
 <!-- PROJECTS:END -->
 
 ## License
