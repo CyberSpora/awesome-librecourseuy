@@ -1,7 +1,7 @@
 {
   "name": "tornet",
   "description": "is hydra whit rotation ip for each N petitions.",
-  "category": "developer tools",
+  "category": "Developer Tools",
   "tags": ["typescript", "hydra"],
   "language": ["Typescript"],
   "license": "MIT",
