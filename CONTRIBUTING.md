@@ -242,8 +242,12 @@ so you never need to do it yourself.
 Categories are defined in [`categories.json`](categories.json), in display
 order, tags in [`tags.json`](tags.json) and licenses in
 [`licenses.json`](licenses.json), alphabetically. All three are closed sets: an
-unknown category, tag or license fails CI. To add one, edit the relevant file in
-the same pull request and explain why the existing values do not fit.
+unknown category, tag or license fails CI.
+
+To add a category or license, edit the relevant file in the same pull request
+and explain why the existing values do not fit. Tags are not extended for a
+single project: pick from the existing [`tags.json`](tags.json), and request a
+new tag only when several unrelated projects need it.
 
 `licenses.json` lists every license GitHub can identify that the
 [SPDX License List](https://spdx.org/licenses/) marks as OSI-approved or
