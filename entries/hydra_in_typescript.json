@@ -1,7 +1,7 @@
 {
   "name": "hydra_in_typescript",
   "description": "is a typescript version of hydra.",
-  "category": "developer tools",
+  "category": "Developer Tools",
   "tags": ["typescript", "hydra"],
   "language": ["Typescript"],
   "license": "MIT",
