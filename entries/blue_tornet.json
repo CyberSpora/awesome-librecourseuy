@@ -1,7 +1,7 @@
 {
   "name": "Blue_tornet",
   "description": "is a tor proxy whit isolate circuits",
-  "category": "other",
+  "category": "Other",
   "tags": ["javascript", "tor"],
   "language": ["Javascript"],
   "license": "MIT",
