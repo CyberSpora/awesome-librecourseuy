@@ -3,7 +3,7 @@
 
 A curated list of open source projects built by Uruguayan developers.
 
-37 projects and counting. Every entry is a JSON file in [`entries/`](entries/)
+38 projects and counting. Every entry is a JSON file in [`entries/`](entries/)
 or [`orgs/`](orgs/), validated by CI. Want to add yours? Read
 [CONTRIBUTING.md](CONTRIBUTING.md); you never edit this README by hand.
 
@@ -56,6 +56,7 @@ explains what listing means and when an entry is removed.
 - [acrresolv](https://github.com/emiliano-go/acrresolv): Hybrid acronym resolver: rules + lookup + ML. 95.5% accuracy on unseen data, <1ms inference. ([@emiliano-go](https://github.com/emiliano-go))
 - [easeo](https://easeo.emiliano-go.com/): Deterministic SEO metadata library for content platforms: canonical URLs, titles, robots, Open Graph, Twitter Cards and JSON-LD from content entities. One Rust core with Python, Node.js and Rust APIs. ([@emiliano-go](https://github.com/emiliano-go))
 - [lambda-compiler](https://github.com/emiliano-go/lambda-compiler): Compile Python lambdas into declarative filter specs via bytecode analysis. ([@emiliano-go](https://github.com/emiliano-go))
+- [r-modals](https://github.com/Kevin-Ramirez127/r-modals): Instant modals for Rust - one call pops a centered, borderless, searchable option picker (eframe/egui, X11 + Wayland). ([@Kevin-Ramirez127](https://github.com/Kevin-Ramirez127))
 - [react-components](https://github.com/LibreCourseUY/react-components): Collaborative React component library for developers taking their first steps in React.
 - [schemap](https://schemap.emiliano-go.com/): Automatic Pydantic schemas for SQLAlchemy models. ([@emiliano-go](https://github.com/emiliano-go))
 - [tagurl](https://github.com/emiliano-go/tagurl): Accepts a natural language query and returns ranked semantic tags and an SEO-friendly URL slug as structured JSON. ([@emiliano-go](https://github.com/emiliano-go))

@@ -644,6 +644,30 @@
       "open_source": true
     },
     {
+      "name": "r-modals",
+      "url": "https://github.com/Kevin-Ramirez127/r-modals",
+      "description": "Instant modals for Rust - one call pops a centered, borderless, searchable option picker (eframe/egui, X11 + Wayland).",
+      "category": "Libraries",
+      "tags": [
+        "linux",
+        "automation",
+        "offline",
+        "rust"
+      ],
+      "language": [
+        "rust"
+      ],
+      "maintainers": [
+        "@Kevin-Ramirez127"
+      ],
+      "license": "GPL-3.0",
+      "commercial": false,
+      "repository": "https://github.com/Kevin-Ramirez127/r-modals",
+      "open_to_contributions": true,
+      "relationship": "community",
+      "open_source": true
+    },
+    {
       "name": "react-components",
       "url": "https://github.com/LibreCourseUY/react-components",
       "description": "Collaborative React component library for developers taking their first steps in React.",
