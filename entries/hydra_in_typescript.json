@@ -1,0 +1,9 @@
+{
+  "name": "hydra_in_typescript",
+  "description": "is a typescript version of hydra.",
+  "category": "Developer Tools",
+  "tags": ["typescript", "hydra"],
+  "language": ["Typescript"],
+  "license": "MIT",
+  "repository": "https://github.com/netaru3/hydra_in_typescript"
+}
