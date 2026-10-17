@@ -457,6 +457,25 @@
       "open_source": true
     },
     {
+      "name": "hydra_in_typescript",
+      "url": "https://github.com/netaru3/hydra_in_typescript",
+      "description": "is a typescript version of hydra.",
+      "category": "Developer Tools",
+      "tags": [
+        "typescript",
+        "hydra"
+      ],
+      "language": [
+        "Typescript"
+      ],
+      "maintainers": [],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/netaru3/hydra_in_typescript",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
       "name": "Keel",
       "url": "https://keel-linux.github.io/",
       "description": "Library and CLI for declarative Keel Linux appliances, compatible with TurnKey Linux appliances.",
@@ -511,6 +530,25 @@
       "commercial": false,
       "repository": "https://github.com/LibreCourseUY/scripts",
       "relationship": "official",
+      "open_source": true
+    },
+    {
+      "name": "tornet",
+      "url": "https://github.com/netaru3/tornet",
+      "description": "is hydra whit rotation ip for each N petitions.",
+      "category": "Developer Tools",
+      "tags": [
+        "typescript",
+        "hydra"
+      ],
+      "language": [
+        "Typescript"
+      ],
+      "maintainers": [],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/netaru3/tornet",
+      "relationship": "community",
       "open_source": true
     },
     {
@@ -725,6 +763,25 @@
       "license": "MIT",
       "commercial": false,
       "repository": "https://github.com/emiliano-go/tagurl",
+      "relationship": "community",
+      "open_source": true
+    },
+    {
+      "name": "Blue_tornet",
+      "url": "https://github.com/netaru3/Blue_tornet",
+      "description": "is a tor proxy whit isolate circuits",
+      "category": "Other",
+      "tags": [
+        "javascript",
+        "tor"
+      ],
+      "language": [
+        "Javascript"
+      ],
+      "maintainers": [],
+      "license": "MIT",
+      "commercial": false,
+      "repository": "https://github.com/netaru3/Blue_tornet",
       "relationship": "community",
       "open_source": true
     },

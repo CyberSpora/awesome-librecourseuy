@@ -3,7 +3,7 @@
 
 A curated list of open source projects built by Uruguayan developers.
 
-38 projects and counting. Every entry is a JSON file in [`entries/`](entries/)
+41 projects and counting. Every entry is a JSON file in [`entries/`](entries/)
 or [`orgs/`](orgs/), validated by CI. Want to add yours? Read
 [CONTRIBUTING.md](CONTRIBUTING.md); you never edit this README by hand.
 
@@ -67,9 +67,11 @@ explains what listing means and when an entry is removed.
 - [DBWarden](https://dbwarden.org/): Declarative database migration system for Python/SQLAlchemy projects: your models are the source code, SQL is the output. ([@emiliano-go](https://github.com/emiliano-go))
 - [Enodia](https://github.com/carlosplanchon/enodia): Wardriving on foot, without GPS or internet. ([@carlosplanchon](https://github.com/carlosplanchon))
 - [hestia](https://github.com/emiliano-go/hestia): Self-hostable agentic project cockpit with persistent Totem memory. ([@emiliano-go](https://github.com/emiliano-go))
+- [hydra_in_typescript](https://github.com/netaru3/hydra_in_typescript): is a typescript version of hydra.
 - [Keel](https://keel-linux.github.io/): Library and CLI for declarative Keel Linux appliances, compatible with TurnKey Linux appliances.
 - [laya-coding-decisions](https://github.com/emiliano-go/laya-coding-decisions): Training data and harness to turn Laya into a coding-agent judge for the hestia decision engine. ([@emiliano-go](https://github.com/emiliano-go))
 - [scripts](https://github.com/LibreCourseUY/scripts): A collection of community-contributed utility scripts, organized by programming language.
+- [tornet](https://github.com/netaru3/tornet): is hydra whit rotation ip for each N petitions.
 - [Totem](https://github.com/emiliano-go/totem): Persistent memory layer for engineering agents. MCP server + CLI. ([@emiliano-go](https://github.com/emiliano-go))
 - [TrustSight](https://trustsight.org/): AUR package update vetting tool. Run it before yay -Syu. ([@emiliano-go](https://github.com/emiliano-go))
 - [TrustSight Harness](https://github.com/emiliano-go/trustsight-harness): Reproducible, cost-tracked adversarial measurement harness for TrustSight. ([@emiliano-go](https://github.com/emiliano-go))
@@ -88,6 +90,7 @@ explains what listing means and when an entry is removed.
 
 ### Other
 
+- [Blue_tornet](https://github.com/netaru3/Blue_tornet): is a tor proxy whit isolate circuits
 - [brand](https://github.com/LibreCourseUY/brand): Official brand assets, logos, and visual identity guidelines for LibreCourseUY.
 - [dsig](https://github.com/emiliano-go/dsig): GPG message signing for Vencord / Vesktop: every message carries a verifiable authorship attestation, not encryption. ([@emiliano-go](https://github.com/emiliano-go))
 <!-- PROJECTS:END -->
