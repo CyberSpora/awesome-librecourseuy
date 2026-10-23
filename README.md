@@ -39,7 +39,7 @@ explains what listing means and when an entry is removed.
 ### Desktop
 
 - [postal](https://github.com/emiliano-go/postal): A standalone native WhatsApp client that speaks the multi-device protocol directly: no webview, and history sync is a choice rather than a download. ([@emiliano-go](https://github.com/emiliano-go))
-- [quick-bitwarden](https://github.com/Kevin-Ramirez127/quick-bitwarden): A quick way to copy your Bitwarden passwords that works on rofi/wofi window. ([@Kevin-Ramirez127](https://github.com/Kevin-Ramirez127))
+- [quick-bitwarden](https://github.com/Kevin-Ramirez127/quick-bitwarden): A quick way to copy your Bitwarden passwords, with a fast r-modals picker. ([@Kevin-Ramirez127](https://github.com/Kevin-Ramirez127))
 
 ### CLI Tools
 
